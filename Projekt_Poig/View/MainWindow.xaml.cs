@@ -24,5 +24,7 @@ namespace Projekt_Poig
         {
             InitializeComponent();
         }
+
+        
     }
 }
