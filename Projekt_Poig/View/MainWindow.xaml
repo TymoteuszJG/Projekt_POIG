@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_Poig"
+        xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.Resources>
+        <vm:AtrybutViewModel x:Key="atrybutViewModel"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource atrybutViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Content="Atrybuty" Height="20" Width="60" HorizontalAlignment="Left" Name="przycisk_atrybuty" Click="Button_Click"></Button>
+        </Grid>
+        <Grid x:Name="panel" Grid.Row="1">
+        </Grid>
     </Grid>
 </Window>
+    

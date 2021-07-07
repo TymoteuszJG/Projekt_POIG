@@ -23,6 +23,13 @@ namespace Projekt_Poig
         public MainWindow()
         {
             InitializeComponent();
+            ScrollViewer viewer = new ScrollViewer();
+            viewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            panel.Children.Add(new View.Atrybuty_tabela());
+        }
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            panel.Children.Add(new View.Atrybuty_tabela());
         }
     }
 }
