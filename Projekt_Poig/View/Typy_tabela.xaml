@@ -10,9 +10,26 @@
     <UserControl.Resources>
         <vm:MainViewModel x:Key="mainViewModel"/>
     </UserControl.Resources>
+    <Grid DataContext="{StaticResource mainViewModel}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="4" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
+            <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza}"/>
+            <TextBox Grid.Row="1" Text="{Binding TypVM.Opis}"/>
+        </Grid>
 
-    <Grid DataContext="{StaticResource mainViewModel}">
-        <DataGrid x:Name="lista_gier" 
+        <Grid Grid.Column="1">
+            <DataGrid x:Name="lista_gier" 
                   Margin="10" 
                   SelectedItem="{Binding TypVM.BiezacyTyp}" 
                   ItemsSource="{Binding TypVM.Typ}" 
@@ -23,13 +40,14 @@
                   ScrollViewer.VerticalScrollBarVisibility="Visible" 
                   ScrollViewer.CanContentScroll="False">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_typu}"/>
-                <DataGridTextColumn Width="100" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
-                <DataGridTextColumn Width="*" Header="Opis" Binding="{Binding Opis}"/>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_typu}"/>
+                    <DataGridTextColumn Width="100" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
+                    <DataGridTextColumn Width="*" Header="Opis" Binding="{Binding Opis}"/>
 
 
-            </DataGrid.Columns>
-        </DataGrid>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>

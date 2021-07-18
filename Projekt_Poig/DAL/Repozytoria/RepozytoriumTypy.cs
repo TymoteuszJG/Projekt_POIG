@@ -11,6 +11,7 @@ namespace Projekt_Poig.DAL.Repozytoria
     class RepozytoriumTypy
     {
         private const string ALL_TYPY_QUERY = "SELECT * FROM typ_gracza";
+        private const string DODAJ_TYP = "INSERT INTO `typ_gracza`(`Nazwa_Gracza`,`Opis`) VALUES ";
 
         public static List<Typ> PobierzWszystkieTypy()
         {
@@ -25,6 +26,20 @@ namespace Projekt_Poig.DAL.Repozytoria
                 connection.Close();
             }
             return typ;
+        }
+        public static bool DodajTyp_GraczaDoBazy(Typ typ_gracza)
+        {
+            bool stan = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                MySqlCommand command = new MySqlCommand($"{DODAJ_TYP} {typ_gracza.ToInsert()}", connection);
+                connection.Open();
+                var id = command.ExecuteNonQuery();
+                stan = true;
+                typ_gracza.Id_typu = (sbyte)command.LastInsertedId;
+                connection.Close();
+            }
+            return stan;
         }
     }
 }

@@ -29,5 +29,17 @@ namespace Projekt_Poig.Model
             foreach (var t in typy)
                 Typy.Add(t);
         }
+        public bool DodajTyp_GraczaDoBazy(Typ typ_gracza)
+        {
+         //   if (!CzyOsobaJestJuzWRepozytorium(osoba))
+           // {
+                if (RepozytoriumTypy.DodajTyp_GraczaDoBazy(typ_gracza))
+                {
+                    Typy.Add(typ_gracza);
+                    return true;
+                }
+          //  }
+            return false;
+        }
     }
 }

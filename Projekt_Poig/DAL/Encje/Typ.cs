@@ -46,6 +46,7 @@ namespace Projekt_Poig.DAL.Encje
             if (Nazwa_gracza.ToLower() != typ.Nazwa_gracza.ToLower()) return false;
             return true;
         }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
