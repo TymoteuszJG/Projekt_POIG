@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projekt_Poig.ViewModel.BaseClass;
+using Projekt_Poig.Commands;
 using System.Windows.Input;
 
 namespace Projekt_Poig.ViewModel
@@ -13,10 +14,12 @@ namespace Projekt_Poig.ViewModel
     class MainViewModel : ViewModelBase
     {
         private Model model = new Model();
+        private Navigation navigation = new Navigation();
 
         public AtrybutViewModel AtrybutVM { get; set; }
         public GryViewModel GraVM { get; set; }
         public TypyViewModel TypVM { get; set; }
+        public NavigateViewModel NavigateVM { get; set; }
         public MainViewModel()
         {
             //stworzenie viemodeli pomocniczych - dla każdej karty
@@ -25,6 +28,7 @@ namespace Projekt_Poig.ViewModel
             AtrybutVM = new AtrybutViewModel(model);
             GraVM = new GryViewModel(model);
             TypVM = new TypyViewModel(model);
+            NavigateVM = new NavigateViewModel(navigation);
         }
     }
 }

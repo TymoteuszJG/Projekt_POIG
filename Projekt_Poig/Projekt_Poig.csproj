@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Commands\Navigation.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\Encje\Atrybut.cs" />
     <Compile Include="DAL\Encje\Gra.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="ViewModel\BaseClass\ViewModelBase.cs" />
     <Compile Include="ViewModel\GryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NavigateViewModel.cs" />
     <Compile Include="ViewModel\TypyViewModel.cs" />
     <Compile Include="View\Typy_tabela.xaml.cs">
       <DependentUpon>Typy_tabela.xaml</DependentUpon>
@@ -121,6 +125,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
