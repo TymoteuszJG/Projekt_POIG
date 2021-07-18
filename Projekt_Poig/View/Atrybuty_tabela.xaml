@@ -12,166 +12,34 @@
     </UserControl.Resources>
     
     <Grid DataContext="{StaticResource mainViewModel}">
-        <ListView x:Name="lista_gier" Margin="10" SelectedItem="{Binding AtrybutVM.BiezacyAtrybut}" ItemsSource="{Binding AtrybutVM.Atrybut}" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Id_gry}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="ID gry"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
+        <DataGrid x:Name="lista_atrybutów" 
+                  Margin="5" 
+                  SelectedItem="{Binding AtrybutVM.BiezacyAtrybut}" 
+                  ItemsSource="{Binding AtrybutVM.Atrybut}" 
+                  VerticalContentAlignment="Top" 
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="None"
+                  IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                  ScrollViewer.CanContentScroll="False" RenderTransformOrigin="0.491,0.49">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="ID GRY" Binding="{Binding Id_gry}"/>
+                <DataGridTextColumn Width="1*" Header="Singleplayer" Binding="{Binding Single_Player}"/>
+                <DataGridTextColumn Width="1*" Header="Multiplayer" Binding="{Binding Multiplayer}"/>
+                <DataGridTextColumn Width="1*" Header="FPS" Binding="{Binding FPS}"/>
+                <DataGridTextColumn Width="1*" Header="Open World" Binding="{Binding Open_World}"/>
+                <DataGridTextColumn Width="1*" Header="Fabularna" Binding="{Binding Fabularna}"/>
+                <DataGridTextColumn Width="1*" Header="Strategia" Binding="{Binding Strategia}"/>
+                <DataGridTextColumn Width="1*" Header="RPG" Binding="{Binding RPG}"/>
+                <DataGridTextColumn Width="1*" Header="RogueLike" Binding="{Binding RogueLike}"/>
+                <DataGridTextColumn Width="1*" Header="Akcja" Binding="{Binding Akcja}"/>
+                <DataGridTextColumn Width="1*" Header="Puzzle" Binding="{Binding Puzzle}"/>
+                <DataGridTextColumn Width="1*" Header="Symulacja" Binding="{Binding Symulacja}"/>
+                <DataGridTextColumn Width="1*" Header="Horror" Binding="{Binding Horror}"/>
+                <DataGridTextColumn Width="1*" Header="Przygodowa" Binding="{Binding Przygodowa}"/>
 
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Single_Player}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Singleplayer"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
 
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Multiplayer}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Multiplayer"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding FPS}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="FPS"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Open_World}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Open_World"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Fabularna}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Fabularna"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Strategia}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Strategia"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding RPG}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="RPG"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding RogueLike}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="RogueLike"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Akcja}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Akcja"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Puzzle}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Puzzle"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Symulacja}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Symulacja"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Horror}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Horror"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Przygodowa}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Przygodowa"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

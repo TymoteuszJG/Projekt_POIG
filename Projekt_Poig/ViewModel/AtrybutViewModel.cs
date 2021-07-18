@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Projekt_Poig.ViewModel
 {
@@ -34,6 +35,3 @@ namespace Projekt_Poig.ViewModel
         public void OdswiezAtrybuty() => Atrybut = model.Atrybuty;
     }
 }
-
-
-

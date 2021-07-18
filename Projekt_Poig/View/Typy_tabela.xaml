@@ -12,46 +12,24 @@
     </UserControl.Resources>
 
     <Grid DataContext="{StaticResource mainViewModel}">
-        <ListView x:Name="lista_gier" Margin="10" SelectedItem="{Binding TypVM.BiezacyTyp}" ItemsSource="{Binding TypVM.Typ}" VerticalContentAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Width="50" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Id_typu}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="ID Typu"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
+        <DataGrid x:Name="lista_gier" 
+                  Margin="10" 
+                  SelectedItem="{Binding TypVM.BiezacyTyp}" 
+                  ItemsSource="{Binding TypVM.Typ}" 
+                  VerticalContentAlignment="Top" 
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="None"
+                  IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                  ScrollViewer.CanContentScroll="False">
 
-                        <GridViewColumn Width="400" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Nazwa_gracza}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Nazwa gracza"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_typu}"/>
+                <DataGridTextColumn Width="100" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
+                <DataGridTextColumn Width="*" Header="Opis" Binding="{Binding Opis}"/>
 
-                        <GridViewColumn Width="200" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Opis}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                            <GridViewColumn.Header>
-                                <TextBlock Text="Opis"></TextBlock>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
-
