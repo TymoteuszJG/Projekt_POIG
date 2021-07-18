@@ -21,7 +21,7 @@ namespace Projekt_Poig.ViewModel
             this.model = model;
             typ = model.Typy;
         }
-        public Atrybut BiezacyTyp { get; set; }
+        public Typ BiezacyTyp { get; set; }
         public ObservableCollection<Typ> Typ
         {
             get { return typ; }

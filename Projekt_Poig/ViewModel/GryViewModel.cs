@@ -21,7 +21,7 @@ namespace Projekt_Poig.ViewModel
             this.model = model;
             gra = model.Gry;
         }
-        public Atrybut BiezacaGra { get; set; }
+        public Gra BiezacaGra { get; set; }
         public ObservableCollection<Gra> Gra
         {
             get { return gra; }

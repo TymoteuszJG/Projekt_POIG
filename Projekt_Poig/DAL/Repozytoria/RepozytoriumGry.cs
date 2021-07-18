@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 namespace Projekt_Poig.DAL.Repozytoria
 {
     using Encje;
-    static class RepozytoriumGry
+     class RepozytoriumGry
     {
         private const string ALL_GRY_QUERY = "SELECT * FROM gry";
 

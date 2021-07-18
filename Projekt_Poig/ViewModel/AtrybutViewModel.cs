@@ -34,3 +34,6 @@ namespace Projekt_Poig.ViewModel
         public void OdswiezAtrybuty() => Atrybut = model.Atrybuty;
     }
 }
+
+
+
