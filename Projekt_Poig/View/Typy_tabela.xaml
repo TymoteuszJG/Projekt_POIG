@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
+             xmlns:prop="clr-namespace:Projekt_Poig.Properties"
+             xmlns:lang="clr-namespace:Projekt_Poig.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -23,7 +25,11 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="4" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
+            
+            <Button Grid.Row="4" 
+                    Command="{Binding TypVM.Dodaj}" 
+                    Content="{x:Static lang:Lang.TT_Button}"/>
+            
             <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza}"/>
             <TextBox Grid.Row="1" Text="{Binding TypVM.Opis}"/>
         </Grid>
@@ -41,9 +47,18 @@
                   ScrollViewer.CanContentScroll="False">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_typu}"/>
-                    <DataGridTextColumn Width="100" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
-                    <DataGridTextColumn Width="*" Header="Opis" Binding="{Binding Opis}"/>
+                    
+                    <DataGridTextColumn Width="50" 
+                                        Header="{x:Static lang:Lang.TT_idGame}" 
+                                        Binding="{Binding Id_typu}"/>
+                    
+                    <DataGridTextColumn Width="100" 
+                                        Header="{x:Static lang:Lang.TT_Player}" 
+                                        Binding="{Binding Nazwa_gracza}"/>
+                    
+                    <DataGridTextColumn Width="*" 
+                                        Header="{x:Static lang:Lang.TT_Description}" 
+                                        Binding="{Binding Opis}"/>
 
 
                 </DataGrid.Columns>

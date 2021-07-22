@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
+             xmlns:prop="clr-namespace:Projekt_Poig.Properties"
+             xmlns:lang="clr-namespace:Projekt_Poig.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -23,20 +25,22 @@
                   ScrollViewer.VerticalScrollBarVisibility="Visible" 
                   ScrollViewer.CanContentScroll="False" RenderTransformOrigin="0.491,0.49">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="1*" Header="ID GRY" Binding="{Binding Id_gry}"/>
-                <DataGridTextColumn Width="1*" Header="Singleplayer" Binding="{Binding Single_Player}"/>
-                <DataGridTextColumn Width="1*" Header="Multiplayer" Binding="{Binding Multiplayer}"/>
-                <DataGridTextColumn Width="1*" Header="FPS" Binding="{Binding FPS}"/>
-                <DataGridTextColumn Width="1*" Header="Open World" Binding="{Binding Open_World}"/>
-                <DataGridTextColumn Width="1*" Header="Fabularna" Binding="{Binding Fabularna}"/>
-                <DataGridTextColumn Width="1*" Header="Strategia" Binding="{Binding Strategia}"/>
-                <DataGridTextColumn Width="1*" Header="RPG" Binding="{Binding RPG}"/>
-                <DataGridTextColumn Width="1*" Header="RogueLike" Binding="{Binding RogueLike}"/>
-                <DataGridTextColumn Width="1*" Header="Akcja" Binding="{Binding Akcja}"/>
-                <DataGridTextColumn Width="1*" Header="Puzzle" Binding="{Binding Puzzle}"/>
-                <DataGridTextColumn Width="1*" Header="Symulacja" Binding="{Binding Symulacja}"/>
-                <DataGridTextColumn Width="1*" Header="Horror" Binding="{Binding Horror}"/>
-                <DataGridTextColumn Width="1*" Header="Przygodowa" Binding="{Binding Przygodowa}"/>
+
+                <DataGridTextColumn Width="44" Header="{x:Static lang:Lang.AT_idGame}" Binding="{Binding Id_gry}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_1}" Binding="{Binding Single_Player}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_2}" Binding="{Binding Multiplayer}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_3}" Binding="{Binding FPS}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_4}" Binding="{Binding Open_World}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_5}" Binding="{Binding Fabularna}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_6}" Binding="{Binding Strategia}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_7}" Binding="{Binding RPG}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_8}" Binding="{Binding RogueLike}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_9}" Binding="{Binding Akcja}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_10}" Binding="{Binding Puzzle}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_11}" Binding="{Binding Symulacja}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_12}" Binding="{Binding Horror}"/>
+                <DataGridTextColumn Width="75" Header="{x:Static lang:Lang.AT_Attribute_13}" Binding="{Binding Przygodowa}"/>
+
 
 
             </DataGrid.Columns>

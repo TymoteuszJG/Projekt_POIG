@@ -4,44 +4,86 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_Poig"
-        mc:Ignorable="d"
         xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
         xmlns:view="clr-namespace:Projekt_Poig.View"
-        Title="MainWindow" Height="450" Width="800">
-
-
-    <Grid>
-
-        <Grid.Resources>
-            <vm:MainViewModel x:Key="mainViewModel"/>
-        </Grid.Resources>
+        xmlns:prop="clr-namespace:Projekt_Poig.Properties"
+        xmlns:lang="clr-namespace:Projekt_Poig.Properties.Lang"
         
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        mc:Ignorable="d"
+        
+        
+        Title="{x:Static lang:Lang.MW_Application}" Height="450" Width="800">
 
 
-        <Grid Grid.Row="0">
-            <Button Grid.Column="0" Width="50" Content="Gry" Command="{Binding NavigateGryCommand}" HorizontalAlignment="Left"/>
-            <Button Grid.Column="1" Width="50" Content="Atrybuty" Command="{Binding NavigateAtrybutyCommand}" HorizontalAlignment="Left" Margin="50,0,0,0"/>
-            <Button Grid.Column="2" Width="50" Content="Typy" Command="{Binding NavigateTypyCommand}" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+    <DockPanel>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <DockPanel Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type StatusBar}}}">
+                <ComboBox x:Name="CB_Lang" SelectedIndex="0" Margin="10,0">
+                    <ComboBoxItem Tag="pl-PL">
+                        <Image Source="/Projekt_Poig;component/Images/pol.jpg" Height="10"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem Tag="en-US">
+                        <Image Source="/Projekt_Poig;component/Images/usa.jpg" Height="10"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text="{x:Static lang:Lang.DP_LangName}" Margin="10,0"/>
+                <Button Margin="10,0" DockPanel.Dock="Right" Content="{x:Static lang:Lang.DP_Change}" Click="Button_Click"/>
+                <TextBlock Text=""/>
+            </DockPanel>
+        </StatusBar>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid>
+
+                <Grid.Resources>
+                    <vm:MainViewModel x:Key="mainViewModel"/>
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid Grid.Row="0">
+                    <Button Grid.Column="0" 
+                    Width="50" 
+                    Content="{x:Static lang:Lang.MW_Game}" 
+                    Command="{Binding NavigateGryCommand}" 
+                    HorizontalAlignment="Left"/>
+
+                    <Button Grid.Column="1" 
+                    Width="50" 
+                    Content="{x:Static lang:Lang.MW_Attributes}" 
+                    Command="{Binding NavigateAtrybutyCommand}" 
+                    HorizontalAlignment="Left" 
+                    Margin="50,0,0,0"/>
+
+                    <Button Grid.Column="2" 
+                    Width="50" 
+                    Content="{x:Static lang:Lang.MW_Type}" 
+                    Command="{Binding NavigateTypyCommand}" 
+                    HorizontalAlignment="Left" 
+                    Margin="100,0,0,0"/>
+                </Grid>
+
+                <Grid Grid.Row="1" >
+                    <ContentControl Content="{Binding CurrentViewModel}">
+                        <ContentControl.Resources>
+                            <DataTemplate DataType="{x:Type vm:AtrybutViewModel}">
+                                <view:Atrybuty_tabela/>
+                            </DataTemplate>
+                            <DataTemplate DataType="{x:Type vm:GryViewModel}">
+                                <view:Gry_tabela/>
+                            </DataTemplate>
+                            <DataTemplate DataType="{x:Type vm:TypyViewModel}">
+                                <view:Typy_tabela/>
+                            </DataTemplate>
+                        </ContentControl.Resources>
+                    </ContentControl>
+                </Grid>
+            </Grid>
         </Grid>
-
-        <Grid Grid.Row="1" >
-            <ContentControl Content="{Binding CurrentViewModel}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type vm:AtrybutViewModel}">
-                        <view:Atrybuty_tabela/>
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vm:GryViewModel}">
-                        <view:Gry_tabela/>
-                    </DataTemplate>
-                    <DataTemplate DataType="{x:Type vm:TypyViewModel}">
-                        <view:Typy_tabela/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
-        </Grid>
-    </Grid> 
+    </DockPanel>
 </Window>

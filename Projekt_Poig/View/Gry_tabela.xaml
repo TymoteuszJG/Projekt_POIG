@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
+             xmlns:prop="clr-namespace:Projekt_Poig.Properties"
+             xmlns:lang="clr-namespace:Projekt_Poig.Properties.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -24,9 +26,18 @@
             ScrollViewer.VerticalScrollBarVisibility="Visible" 
             ScrollViewer.CanContentScroll="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_gry}"/>
-                <DataGridTextColumn Width="400" Header="Nazwa gry" Binding="{Binding Nazwa_gry}"/>
-                <DataGridTextColumn Width="50" Header="ID TYPU" Binding="{Binding Id_typu}"/>
+                
+                <DataGridTextColumn Width="50" 
+                                    Header="{x:Static lang:Lang.GT_idGame}" 
+                                    Binding="{Binding Id_gry}"/>
+                
+                <DataGridTextColumn Width="400" 
+                                    Header="{x:Static lang:Lang.GT_Name}" 
+                                    Binding="{Binding Nazwa_gry}"/>
+                
+                <DataGridTextColumn Width="55" 
+                                    Header="{x:Static lang:Lang.GT_idType}" 
+                                    Binding="{Binding Id_typu}"/>
 
 
             </DataGrid.Columns>

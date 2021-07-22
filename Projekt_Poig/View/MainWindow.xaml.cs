@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,39 @@ namespace Projekt_Poig
         {
             Navigation navigation = new Navigation();
             DataContext = new NavigateViewModel(navigation);
-            InitializeComponent(); 
+            InitializeComponent();
+            loadStateOfApp();
+
+
+
         }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem CB_Item = (ComboBoxItem)CB_Lang.SelectedItem;
+
+            string version = CB_Item.Tag.ToString();
+            
+            App.ChangeCulture(version);
+        }
+
+        public void loadStateOfApp()
+        {
+            var ustawienia = Properties.Settings.Default;
+            //cbChangeLan.SelectedIndex = ustawienia.cbChangeLanSelectedIndex;
+
+            //ComboBoxItem cb = (ComboBoxItem)cbChangeLan.Items[1];
+            var kultura = Thread.CurrentThread.CurrentCulture.Name;
+            switch (kultura)
+            {
+                case "pl-PL": CB_Lang.SelectedIndex = 0; break;
+                case "en-US": CB_Lang.SelectedIndex = 1; break;
+                default: CB_Lang.SelectedIndex = -1; break;
+            }
+            
+        }
+
+
     }
 }
