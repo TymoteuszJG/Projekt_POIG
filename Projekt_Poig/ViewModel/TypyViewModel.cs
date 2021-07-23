@@ -15,8 +15,7 @@ namespace Projekt_Poig.ViewModel
     {
         private Model model = null;
         private ObservableCollection<Typ> typ = null;
-        private string nazwa_gracza=null,opis=null;
-        private ICommand wyswietl=null;
+        private string nazwa_gracza="",opis="";
         private ICommand dodaj = null;
 
         public ICommand Dodaj
@@ -32,7 +31,7 @@ namespace Projekt_Poig.ViewModel
 
                             if (model.DodajTyp_GraczaDoBazy(osoba))
                             {
-                                
+                                CzyscFormularz();
                                 System.Windows.MessageBox.Show("Pomyslnie dodales typ gracza");
                             }
                         }
@@ -44,22 +43,6 @@ namespace Projekt_Poig.ViewModel
                 return dodaj;
             }
 
-        }
-        public ICommand Wyswietl
-        {
-            get
-            {
-                if (wyswietl == null)
-                {
-                    wyswietl = new RelayCommand(arg =>
-                      {
-                          Console.WriteLine(Opis);
-                          Console.WriteLine(Nazwa_gracza);
-                      },
-                    arg => true);
-                }
-                return wyswietl;
-            }
         }
         public string Nazwa_gracza
         {
@@ -95,6 +78,16 @@ namespace Projekt_Poig.ViewModel
                 typ = value;
                 OnPropertyChanged(nameof(Typ));
             }
+        }
+        public void CzyscFormularz()
+        {
+            Nazwa_gracza = "";
+            Opis = "";
+        }
+        public void Formularz()
+        {
+            Nazwa_gracza = nazwa_gracza;
+            Opis = opis;
         }
         public void OdswiezTypy() => Typ = model.Typy;
 

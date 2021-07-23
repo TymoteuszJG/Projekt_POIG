@@ -30,7 +30,6 @@
 
         <Grid Grid.Column="1">
             <DataGrid x:Name="lista_gier" 
-                  Margin="10" 
                   SelectedItem="{Binding TypVM.BiezacyTyp}" 
                   ItemsSource="{Binding TypVM.Typ}" 
                   VerticalContentAlignment="Top" 

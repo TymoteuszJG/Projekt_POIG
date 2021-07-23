@@ -42,13 +42,6 @@ namespace Projekt_Poig.DAL.Encje
         {
             return $"( '{Nazwa_gry}', {Id_typu})";
         }
-        public override bool Equals(object obj)
-        {
-            var gra = obj as Gra;
-            if (gra is null) return false;
-            if (Nazwa_gry.ToLower() != gra.Nazwa_gry.ToLower()) return false;
-            return true;
-        }
         public override int GetHashCode()
         {
             return base.GetHashCode();

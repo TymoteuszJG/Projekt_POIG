@@ -11,12 +11,29 @@
         <vm:MainViewModel x:Key="mainViewModel"/>
     </UserControl.Resources>
 
-    <Grid DataContext="{StaticResource mainViewModel}">
+    <Grid DataContext="{StaticResource mainViewModel}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="4" Command="{Binding GraVM.Dodaj}" Content="Dodaj"/>
+            <TextBox Grid.Row="0" Text="{Binding GraVM.Nazwa_gry}"/>
+            <ComboBox Grid.Row="1" Height="20" ItemsSource="{Binding GraVM.Combo}"  SelectedItem="{Binding GraVM.Nazwa_gracza}" SelectedIndex="{Binding GraVM.IdZaznaczenia,Mode=TwoWay}"/>
+        </Grid>
+        
         <DataGrid 
             x:Name="lista_gier" 
-            Margin="10" 
             SelectedItem="{Binding GraVM.BiezacaGra}" 
-            ItemsSource="{Binding GraVM.Gra}" 
+            ItemsSource="{Binding GraVM.Gra}"
+            Grid.Column="1"
             VerticalContentAlignment="Top"
             AutoGenerateColumns="False"
             GridLinesVisibility="None"

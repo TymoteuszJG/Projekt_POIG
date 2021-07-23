@@ -43,8 +43,9 @@ namespace Projekt_Poig.DAL.Encje
             Przygodowa = int.Parse(reader["Przygodowa"].ToString());
         }
         //tworzenie nowego z pustym id do dodania
-        public Atrybut(int singleplayer, int multiplayer, int fps, int open_world, int fabularna, int strategia, int rpg, int roguelike, int akcja, int puzzle, int symulacja, int horror, int przygodowa)
+        public Atrybut(int id_gry ,int singleplayer, int multiplayer, int fps, int open_world, int fabularna, int strategia, int rpg, int roguelike, int akcja, int puzzle, int symulacja, int horror, int przygodowa)
         {
+            Id_gry = id_gry;
             Single_Player = singleplayer;
             Multiplayer = multiplayer;
             FPS = fps;

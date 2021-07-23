@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
         xmlns:view="clr-namespace:Projekt_Poig.View"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1050">
 
 
     <Grid>
