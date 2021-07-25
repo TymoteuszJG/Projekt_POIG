@@ -17,7 +17,17 @@ namespace Projekt_Poig.ViewModel
         private ObservableCollection<Typ> typ = null;
         private string nazwa_gracza="",opis="";
         private ICommand dodaj = null;
-
+        private ICommand usun = null;
+        public Typ BiezacyTyp { get; set; }
+        public ObservableCollection<Typ> Typ
+        {
+            get { return typ; }
+            set
+            {
+                typ = value;
+                OnPropertyChanged(nameof(Typ));
+            }
+        }
         public ICommand Dodaj
         {
 
@@ -41,6 +51,33 @@ namespace Projekt_Poig.ViewModel
 
 
                 return dodaj;
+            }
+
+        }
+        public ICommand Usun
+        {
+
+            get
+            {
+                if (usun == null)
+                    usun = new RelayCommand(
+                        arg =>
+                        {
+                            var osoba = new Typ(Nazwa_gracza, Opis);
+                           
+
+                            if (model.UsunTyp_GraczaZBazy(BiezacyTyp))
+                            {
+
+                                System.Windows.MessageBox.Show("Pomyslnie Usunoles typ gracza");
+                            }
+                        }
+                        ,
+                        arg => (BiezacyTyp != null)
+                        );
+
+
+                return usun;
             }
 
         }
@@ -69,16 +106,7 @@ namespace Projekt_Poig.ViewModel
             this.model = model;
             typ = model.Typy;
         }
-        public Typ BiezacyTyp { get; set; }
-        public ObservableCollection<Typ> Typ
-        {
-            get { return typ; }
-            set
-            {
-                typ = value;
-                OnPropertyChanged(nameof(Typ));
-            }
-        }
+        
         public void CzyscFormularz()
         {
             Nazwa_gracza = "";

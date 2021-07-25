@@ -26,6 +26,7 @@
             <Button Grid.Row="4" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
             <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza}"/>
             <TextBox Grid.Row="1" Text="{Binding TypVM.Opis}"/>
+            <Button Grid.Row="3" Command="{Binding TypVM.Usun}" Content="Usun"/>
         </Grid>
 
         <Grid Grid.Column="1">

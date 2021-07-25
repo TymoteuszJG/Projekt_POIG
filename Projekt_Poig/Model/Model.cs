@@ -57,6 +57,18 @@ namespace Projekt_Poig.Model
             }
             return false;
         }
+        public bool UsunTyp_GraczaZBazy(Typ typ_gracza)
+        {
+            if (!CzyTypJestJuzWRepozytorium(typ_gracza))
+            {
+                if (RepozytoriumTypy.DodajTyp_GraczaDoBazy(typ_gracza))
+                {
+                    Typy.Remove(typ_gracza);
+                    return true;
+                }
+            }
+            return false;
+        }
         public bool DodajGreDoBazy(Gra gry)
         {
             if (!CzyGraJestJuzWRepozytorium(gry))

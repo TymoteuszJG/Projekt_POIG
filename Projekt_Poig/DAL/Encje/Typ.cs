@@ -39,6 +39,10 @@ namespace Projekt_Poig.DAL.Encje
         {
             return $"('{Nazwa_gracza}', '{Opis}')";
         }
+        public string ZwrocID()
+        {
+            return $"{Id_typu}";
+        }
 
         public override int GetHashCode()
         {

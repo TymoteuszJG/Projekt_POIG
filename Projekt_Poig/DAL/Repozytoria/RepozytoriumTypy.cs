@@ -13,6 +13,7 @@ namespace Projekt_Poig.DAL.Repozytoria
         //private const string RESET = "alter table typ_gracza auto_increment=1;";
         private const string ALL_TYPY_QUERY = "SELECT * FROM typ_gracza";
         private const string DODAJ_TYP = "INSERT INTO `typ_gracza`(`Nazwa_Gracza`,`Opis`) VALUES ";
+        private const string USUN_TYP = "DELETE FROM `typ_gracza` where `id_Typu`= ";
 
         public static List<Typ> PobierzWszystkieTypy()
         {
@@ -42,6 +43,32 @@ namespace Projekt_Poig.DAL.Repozytoria
                 var id = command.ExecuteNonQuery();
                 stan = true;
                 typ_gracza.Id_typu = (int)command.LastInsertedId;
+                connection.Close();
+            }
+            return stan;
+        }
+        public static bool UsunTyp_GraczaZBazy(Typ typ_gracza)
+        {
+            bool stan = false;
+            
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                MySqlCommand command = new MySqlCommand($"{USUN_TYP} {typ_gracza.ZwrocID()}", connection);
+                connection.Open();
+                //var id = command.ExecuteNonQuery();\
+                
+                
+                try
+                {
+                    command.ExecuteNonQuery();
+                    stan = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Blad" + e);
+                }
+
+                //typ_gracza.Id_typu = (sbyte)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
