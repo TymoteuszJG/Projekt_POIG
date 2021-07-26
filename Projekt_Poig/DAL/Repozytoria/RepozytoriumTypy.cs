@@ -14,6 +14,9 @@ namespace Projekt_Poig.DAL.Repozytoria
         private const string ALL_TYPY_QUERY = "SELECT * FROM typ_gracza";
         private const string DODAJ_TYP = "INSERT INTO `typ_gracza`(`Nazwa_Gracza`,`Opis`) VALUES ";
         private const string USUN_TYP = "DELETE FROM `typ_gracza` where `id_Typu`= ";
+        private const string EDIT_TYP_1 = "UPDATE `typ_gracza` SET `Nazwa_Gracza`=";
+        private const string EDIT_TYP_2 = ",`Opis`=";
+        private const string EDIT_TYP_3 = " where `id_Typu`=";
 
         public static List<Typ> PobierzWszystkieTypy()
         {
@@ -28,6 +31,28 @@ namespace Projekt_Poig.DAL.Repozytoria
                 connection.Close();
             }
             return typ;
+        }
+        public static bool EdytujTyp_GraczaZBazy(string opis, string Nazwa_Gracza, string ID)
+        {
+            bool stan = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                //MySqlCommand reset = new MySqlCommand(RESET, connection);
+                MySqlCommand command = new MySqlCommand($"{EDIT_TYP_1} '{Nazwa_Gracza}' {EDIT_TYP_2} '{opis}' {EDIT_TYP_3} {ID}", connection);
+                /*connection.Open();
+                var reseter = reset.ExecuteReader();
+                connection.Close();*/
+                connection.Open();
+                //var id =
+                Console.WriteLine($"{EDIT_TYP_1} '{Nazwa_Gracza}' {EDIT_TYP_2} '{opis}' {EDIT_TYP_3} {ID}",connection);
+                Console.WriteLine();
+                Console.WriteLine();
+                command.ExecuteNonQuery();
+                stan = true;
+                //typ_gracza.Id_typu = (int)command.LastInsertedId;
+                connection.Close();
+            }
+            return stan;
         }
         public static bool DodajTyp_GraczaDoBazy(Typ typ_gracza)
         {

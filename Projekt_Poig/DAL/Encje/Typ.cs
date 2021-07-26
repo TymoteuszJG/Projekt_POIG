@@ -20,10 +20,22 @@ namespace Projekt_Poig.DAL.Encje
             Nazwa_gracza = reader["Nazwa_Gracza"].ToString();
             Opis = reader["Opis"].ToString();
         }
+        public void edytuj(string opis, string nazwa_Gracza)
+        {
+            
+            Nazwa_gracza = nazwa_Gracza;
+            Opis =opis ;
+        }
         public Typ(string nazwa_gracza, string opis)
         {
             Nazwa_gracza = nazwa_gracza;
             Opis = opis;
+        }
+        public Typ(string nazwa_gracza, string opis,int id)
+        {
+            Nazwa_gracza = nazwa_gracza;
+            Opis = opis;
+            Id_typu = id;
         }
         public Typ(Typ typ)
         {
@@ -43,7 +55,18 @@ namespace Projekt_Poig.DAL.Encje
         {
             return $"{Id_typu}";
         }
-
+        public int ZwrocID_Int()
+        {
+            return Id_typu; 
+        }
+        public string ZwrocOpis()
+        {
+            return $"{Opis}";
+        }
+        public string ZwrocNazwe_Gracza()
+        {
+            return $"{Nazwa_gracza}";
+        }
         public override int GetHashCode()
         {
             return base.GetHashCode();

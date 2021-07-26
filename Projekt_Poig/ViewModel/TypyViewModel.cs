@@ -18,7 +18,20 @@ namespace Projekt_Poig.ViewModel
         private string nazwa_gracza="",opis="";
         private ICommand dodaj = null;
         private ICommand usun = null;
+        private ICommand edytuj = null;
+        private ICommand zaladuj_typ = null;
+        private int index_typu;
         public Typ BiezacyTyp { get; set; }
+        public int Index_typu
+        {
+            get { return Index_typu; }
+            set
+            {
+                index_typu = value;
+                OnPropertyChanged(nameof(Index_typu));
+
+            }
+        }
         public ObservableCollection<Typ> Typ
         {
             get { return typ; }
@@ -27,6 +40,37 @@ namespace Projekt_Poig.ViewModel
                 typ = value;
                 OnPropertyChanged(nameof(Typ));
             }
+        }
+        public ICommand Edytuj
+        {
+
+            get
+            {
+                if (edytuj == null)
+                    edytuj = new RelayCommand(
+                        arg =>
+                        {
+                            var osoba = new Typ(Nazwa_gracza, Opis,BiezacyTyp.ZwrocID_Int());
+
+
+                            if (model.EdytujTyp_GraczaZBazy(Opis,Nazwa_gracza,BiezacyTyp.ZwrocID()))
+                            {
+                                index_typu = Typ.IndexOf(BiezacyTyp);
+                                Typ[index_typu] = osoba;
+                                Console.WriteLine(Typ.Last().ToString());
+                                
+                                
+                                System.Windows.MessageBox.Show("Pomyslnie edytowales typ gracza");
+                            }
+                        }
+                        ,
+                        arg => (BiezacyTyp != null)
+                        );
+
+
+                return edytuj;
+            }
+
         }
         public ICommand Dodaj
         {
@@ -80,6 +124,30 @@ namespace Projekt_Poig.ViewModel
                 return usun;
             }
 
+        }
+        public ICommand Zaladuj_Typ
+        {
+            get
+            {
+                if (zaladuj_typ == null)
+                {
+                    zaladuj_typ = new RelayCommand(
+                        arg =>
+                        {
+                            if (BiezacyTyp != null)
+                            {
+                                Opis = BiezacyTyp.ZwrocOpis();
+                                Nazwa_gracza = BiezacyTyp.ZwrocNazwe_Gracza();
+                            }
+
+                        }
+                        ,
+
+                        arg => true);
+                }
+                return zaladuj_typ;
+
+            }
         }
         public string Nazwa_gracza
         {

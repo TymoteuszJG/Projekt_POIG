@@ -31,6 +31,7 @@ namespace Projekt_Poig.ViewModel
         }
         private void OnCurrentViewModelChanged()
         {
+            
             OnPropertyChanged(nameof(CurrentViewModel));
         }
     }

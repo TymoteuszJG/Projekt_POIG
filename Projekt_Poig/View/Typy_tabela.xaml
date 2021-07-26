@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
              mc:Ignorable="d" 
@@ -24,12 +25,14 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Grid.Row="4" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
-            <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza}"/>
-            <TextBox Grid.Row="1" Text="{Binding TypVM.Opis}"/>
+            <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza , Mode=TwoWay}"/>
+            <TextBox Grid.Row="1" Text="{Binding TypVM.Opis, Mode=TwoWay}"/>
             <Button Grid.Row="3" Command="{Binding TypVM.Usun}" Content="Usun"/>
+            <Button Grid.Row="2" Command="{Binding TypVM.Edytuj}" Content="Edytuj"/>
         </Grid>
 
         <Grid Grid.Column="1">
+            
             <DataGrid x:Name="lista_gier" 
                   SelectedItem="{Binding TypVM.BiezacyTyp}" 
                   ItemsSource="{Binding TypVM.Typ}" 
@@ -47,6 +50,11 @@
 
 
                 </DataGrid.Columns>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding TypVM.Zaladuj_Typ}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </DataGrid>
         </Grid>
     </Grid>
