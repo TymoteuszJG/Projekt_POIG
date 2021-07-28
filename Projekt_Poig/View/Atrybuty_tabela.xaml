@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
@@ -13,8 +14,9 @@
 
     <Grid DataContext="{StaticResource mainViewModel}">
         <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-        <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -47,8 +49,10 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <ComboBox Grid.Row="0" Margin="5" Height="20" ItemsSource="{Binding AtrybutVM.Niemaidnazwa}"  SelectedItem="{Binding AtrybutVM.Nazwa_gry}" SelectedIndex="{Binding AtrybutVM.IdZaznaczenia,Mode=TwoWay}"/>
+            <ComboBox Grid.Row="0" Margin="5" Height="20" ItemsSource="{Binding AtrybutVM.Niemaidnazwa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding AtrybutVM.Nazwa_gry}" SelectedIndex="{Binding AtrybutVM.IdZaznaczenia,Mode=TwoWay}"/>
             <TextBlock Margin="5,0,0,0" Grid.Row="1" FontSize="9" Grid.Column="0" Text="Singleplayer :"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="1" FontSize="9" Grid.Column="1" Text="{Binding ElementName=singleplayer, Path=Value}"  HorizontalAlignment="Right" />
             <Slider Margin="5,0,5,0" x:Name="singleplayer" Grid.Row="2" Maximum="100" Value="{Binding AtrybutVM.Singleplayer}" TickFrequency="1" IsSnapToTickEnabled="True" />
@@ -86,9 +90,11 @@
             <TextBlock Margin="0,0,5,0" Grid.Row="23" FontSize="9" Grid.Column="1" Text="{Binding ElementName=horror, Path=Value}"  HorizontalAlignment="Right" />
             <Slider Margin="5,0,5,0" x:Name="horror" Grid.Row="24" Maximum="100" Value="{Binding AtrybutVM.Horror}" TickFrequency="1" IsSnapToTickEnabled="True" />
             <TextBlock Margin="5,0,0,0" Grid.Row="25" FontSize="9" Grid.Column="0" Text="Przygodowa :"/>
-            <TextBlock Margin="0,0,5,0" Grid.Row="25" FontSize="9" Grid.Column="1" Text="{Binding ElementName=przygodowa, Path=Value}"  HorizontalAlignment="Right" />
-            <Slider Margin="5,0,5,0" x:Name="przygodowa" Grid.Row="26" Maximum="100" Value="{Binding AtrybutVM.Przygodowa}" TickFrequency="1" IsSnapToTickEnabled="True" />
-            <Button Grid.Row="28" Command="{Binding AtrybutVM.Dodaj}" Content="Dodaj"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="25" FontSize="9" Grid.Column="1" Text="{Binding ElementName=przygodowa, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="przygodowa" Grid.Row="26" Maximum="100" Value="{Binding AtrybutVM.Przygodowa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <Button Grid.Row="30" Command="{Binding AtrybutVM.Dodaj}" Content="Dodaj"/>
+            <Button Grid.Row="29" Command="{Binding AtrybutVM.Usun}" Content="Usun"/>
+            <Button Grid.Row="28" Command="{Binding AtrybutVM.Edytuj}" Content="Edytuj"/>
         </Grid>
         <DataGrid x:Name="lista_atrybutów" 
                   Grid.Column="1"
@@ -118,6 +124,11 @@
 
 
             </DataGrid.Columns>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding AtrybutVM.Zaladuj_Atrybut}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </DataGrid>
     </Grid>
 </UserControl>

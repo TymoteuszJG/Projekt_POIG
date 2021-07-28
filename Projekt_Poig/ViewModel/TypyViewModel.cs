@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
+
 
 namespace Projekt_Poig.ViewModel
 {
@@ -20,7 +23,9 @@ namespace Projekt_Poig.ViewModel
         private ICommand usun = null;
         private ICommand edytuj = null;
         private ICommand zaladuj_typ = null;
-        private int index_typu;
+        public ICollectionView FiltrujTypy { get; }
+        private string filtr=string.Empty;
+        private int index_typu=-1;
         public Typ BiezacyTyp { get; set; }
         public int Index_typu
         {
@@ -55,16 +60,15 @@ namespace Projekt_Poig.ViewModel
 
                             if (model.EdytujTyp_GraczaZBazy(Opis,Nazwa_gracza,BiezacyTyp.ZwrocID()))
                             {
+                                CzyscFormularz();
                                 index_typu = Typ.IndexOf(BiezacyTyp);
                                 Typ[index_typu] = osoba;
-                                Console.WriteLine(Typ.Last().ToString());
-                                
-                                
+                                index_typu = -1;
                                 System.Windows.MessageBox.Show("Pomyslnie edytowales typ gracza");
                             }
                         }
                         ,
-                        arg => (BiezacyTyp != null)
+                        arg => (BiezacyTyp != null) && model.JestTypNazwa(Nazwa_gracza,BiezacyTyp.Nazwa_gracza) && model.CzyZmieniono(Nazwa_gracza,Opis,BiezacyTyp)
                         );
 
 
@@ -81,7 +85,7 @@ namespace Projekt_Poig.ViewModel
                     dodaj = new RelayCommand(
                         arg =>
                         {
-                            var osoba = new Typ(Nazwa_gracza,Opis);
+                            var osoba = new Typ(Nazwa_gracza, Opis);
 
                             if (model.DodajTyp_GraczaDoBazy(osoba))
                             {
@@ -90,8 +94,8 @@ namespace Projekt_Poig.ViewModel
                             }
                         }
                         ,
-                        arg => (Nazwa_gracza != "") && (Opis != "") 
-                        );
+                        arg => (Nazwa_gracza != "") && (Opis != "") && model.JestTypDodaj(Nazwa_gracza, Opis) && index_typu ==-1
+                        ); ;
 
 
                 return dodaj;
@@ -112,8 +116,8 @@ namespace Projekt_Poig.ViewModel
 
                             if (model.UsunTyp_GraczaZBazy(BiezacyTyp))
                             {
-
-                                System.Windows.MessageBox.Show("Pomyslnie Usunoles typ gracza");
+                                CzyscFormularz();
+                                System.Windows.MessageBox.Show("Pomyslnie Usunales typ gracza");
                             }
                         }
                         ,
@@ -149,6 +153,19 @@ namespace Projekt_Poig.ViewModel
 
             }
         }
+        public string Filtr
+        {
+            get
+            {
+                return filtr;
+            }
+            set
+            {
+                filtr = value;
+                OnPropertyChanged(nameof(Filtr));
+                FiltrujTypy.Refresh();
+            }
+        }
         public string Nazwa_gracza
         {
             get { return nazwa_gracza; }
@@ -173,8 +190,19 @@ namespace Projekt_Poig.ViewModel
         {
             this.model = model;
             typ = model.Typy;
+            FiltrujTypy = CollectionViewSource.GetDefaultView(typ);
+            FiltrujTypy.Filter = FiltrTypow;
         }
-        
+
+        private bool FiltrTypow(object obj)
+        {
+            if(obj is Typ typ)
+            {
+                return typ.Nazwa_gracza.ToLower().Contains(Filtr.ToLower()) || typ.Opis.ToLower().Contains(Filtr.ToLower());
+            }
+            return false;
+        }
+
         public void CzyscFormularz()
         {
             Nazwa_gracza = "";

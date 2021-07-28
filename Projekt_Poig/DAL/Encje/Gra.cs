@@ -21,6 +21,18 @@ namespace Projekt_Poig.DAL.Encje
             Id_typu = int.Parse(reader["id_Typu"].ToString());
         }
         //dodawanie
+        public void edytuj(string nazwa_gry, int id_typu)
+        {
+
+            Nazwa_gry = nazwa_gry;
+            Id_typu = id_typu;
+        }
+        public Gra(string nazwa_gry, int id_typu, int id)
+        {
+            Nazwa_gry = nazwa_gry;
+            Id_typu = id_typu;
+            Id_gry = id;
+        }
         public Gra(string nazwa_gry, int id_typu)
         {
             Nazwa_gry = nazwa_gry;
@@ -45,6 +57,18 @@ namespace Projekt_Poig.DAL.Encje
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+        public string ZwrocID()
+        {
+            return $"{Id_gry}";
+        }
+        public string ZwrocIDTypu()
+        {
+            return $"{Id_typu}";
+        }
+        public string ZwrocNazwe_Gry()
+        {
+            return $"{Nazwa_gry}";
         }
     }
 }

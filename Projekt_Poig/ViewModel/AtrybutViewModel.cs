@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Data;
 
 namespace Projekt_Poig.ViewModel
 {
@@ -21,11 +22,13 @@ namespace Projekt_Poig.ViewModel
         private ObservableCollection<int> niemaid = null;
         private ObservableCollection<string> niemaidnazwa = null;
         private string nazwa_gry = null;
-        private int id_gry = -1, idZaznaczenia = -1;
+        private int id_gry = -1, idZaznaczenia = -1, index_atrybutu;
         private int singleplayer=0, multiplayer = 0, fps = 0, openworld = 0, fabularna = 0, strategia = 0, rpg = 0, roguelike = 0, akcja = 0, puzzle = 0, symulacja = 0, horror = 0, przygodowa = 0;
 
         private ICommand dodaj = null;
-
+        private ICommand usun = null;
+        private ICommand edytuj = null;
+        private ICommand zaladuj_atrybut = null;
 
         public ICommand Dodaj
         {
@@ -53,6 +56,100 @@ namespace Projekt_Poig.ViewModel
             }
 
         }
+        public ICommand Usun
+        {
+
+            get
+            {
+                if (usun == null)
+                    usun = new RelayCommand(
+                        arg =>
+                        {
+                            var atrybuty = new Atrybut(id_gry);
+
+
+                            if (model.UsunAtrybutZBazy(BiezacyAtrybut))
+                            {
+                                Nazwa_gry = model.ZnajdzGrepoId(id_gry);
+                                CzyscFormularzEdit();
+                                System.Windows.MessageBox.Show("Pomyslnie usunales gre");
+                            }
+                        }
+                        ,
+                        arg => BiezacyAtrybut != null && idZaznaczenia == -1
+                        );
+
+
+                return usun;
+            }
+
+        }
+        public ICommand Edytuj
+        {
+
+            get
+            {
+                if (edytuj == null)
+                    edytuj = new RelayCommand(
+                        arg =>
+                        {
+                            var atrybut = new Atrybut(int.Parse(BiezacyAtrybut.ZwrocID()), singleplayer, multiplayer, fps, openworld, fabularna, strategia, rpg, roguelike, akcja, puzzle, symulacja, horror, przygodowa);
+
+
+                            if (model.EdytujAtrybutyZBazy(singleplayer, multiplayer, fps, openworld, fabularna, strategia, rpg, roguelike, akcja, puzzle, symulacja, horror, przygodowa, BiezacyAtrybut.ZwrocID()))
+                            {
+                                CzyscFormularz();
+                                index_atrybutu = Atrybut.IndexOf(BiezacyAtrybut);
+                                Atrybut[index_atrybutu] = atrybut;
+                                index_atrybutu = -1;
+                                System.Windows.MessageBox.Show("Pomyslnie edytowales Atrybuty");
+                            }
+                        }
+                        ,
+                        arg => (BiezacyAtrybut != null&&idZaznaczenia==-1)
+                        );
+
+
+                return edytuj;
+            }
+        }
+        public ICommand Zaladuj_Atrybut
+        {
+            get
+            {
+                if (zaladuj_atrybut == null)
+                {
+                    zaladuj_atrybut = new RelayCommand(
+                        arg =>
+                        {
+                            if (BiezacyAtrybut != null)
+                            {
+                                IdZaznaczenia = -1;
+                                id_gry = int.Parse(BiezacyAtrybut.ZwrocID());
+                                Singleplayer = int.Parse(BiezacyAtrybut.ZwrocSingleplayer());
+                                Multiplayer = int.Parse(BiezacyAtrybut.ZwrocMultiplayer());
+                                Fps = int.Parse(BiezacyAtrybut.ZwrocFPS());
+                                Openworld = int.Parse(BiezacyAtrybut.ZwrocOpenWorld());
+                                Fabularna = int.Parse(BiezacyAtrybut.ZwrocFabularna());
+                                Strategia = int.Parse(BiezacyAtrybut.ZwrocStrategia());
+                                Rpg = int.Parse(BiezacyAtrybut.ZwrocRPG());
+                                Roguelike = int.Parse(BiezacyAtrybut.ZwrocRogueLike());
+                                Akcja = int.Parse(BiezacyAtrybut.ZwrocAkcja());
+                                Puzzle = int.Parse(BiezacyAtrybut.ZwrocPuzzle());
+                                Symulacja = int.Parse(BiezacyAtrybut.ZwrocSymulacja());
+                                Horror = int.Parse(BiezacyAtrybut.ZwrocHorror());
+                                Przygodowa = int.Parse(BiezacyAtrybut.ZwrocPrzygodowa());
+                            }
+
+                        }
+                        ,
+
+                        arg => true);
+                }
+                return zaladuj_atrybut;
+
+            }
+        }
 
         public AtrybutViewModel(Model model)
         {
@@ -73,16 +170,50 @@ namespace Projekt_Poig.ViewModel
             Singleplayer = 0;
             Multiplayer = 0;
             Fps = 0;
-            Openworld= 0;
-            Fabularna= 0;
-            Strategia= 0;
-            Rpg= 0;
-            Roguelike= 0;
-            Akcja= 0;
-            Puzzle= 0;
-            Symulacja= 0;
-            Horror= 0;
-            Przygodowa= 0;
+            Openworld = 0;
+            Fabularna = 0;
+            Strategia = 0;
+            Rpg = 0;
+            Roguelike = 0;
+            Akcja = 0;
+            Puzzle = 0;
+            Symulacja = 0;
+            Horror = 0;
+            Przygodowa = 0;
+        }
+        private void WyczyszczonyFormularz()
+        {
+            Singleplayer = 0;
+            Multiplayer = 0;
+            Fps = 0;
+            Openworld = 0;
+            Fabularna = 0;
+            Strategia = 0;
+            Rpg = 0;
+            Roguelike = 0;
+            Akcja = 0;
+            Puzzle = 0;
+            Symulacja = 0;
+            Horror = 0;
+            Przygodowa = 0;
+        }
+        private void CzyscFormularzEdit()
+        {
+            niemaidnazwa.Add(nazwa_gry);
+            IdZaznaczenia = -1;
+            Singleplayer = 0;
+            Multiplayer = 0;
+            Fps = 0;
+            Openworld = 0;
+            Fabularna = 0;
+            Strategia = 0;
+            Rpg = 0;
+            Roguelike = 0;
+            Akcja = 0;
+            Puzzle = 0;
+            Symulacja = 0;
+            Horror = 0;
+            Przygodowa = 0;
         }
         public ObservableCollection<Atrybut> Atrybut
         {
@@ -138,6 +269,7 @@ namespace Projekt_Poig.ViewModel
             get { return idZaznaczenia; }
             set
             {
+                WyczyszczonyFormularz();
                 idZaznaczenia = value;
                 OnPropertyChanged(nameof(IdZaznaczenia));
             }

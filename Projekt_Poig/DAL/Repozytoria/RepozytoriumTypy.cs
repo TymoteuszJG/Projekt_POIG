@@ -79,9 +79,7 @@ namespace Projekt_Poig.DAL.Repozytoria
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand($"{USUN_TYP} {typ_gracza.ZwrocID()}", connection);
-                connection.Open();
-                //var id = command.ExecuteNonQuery();\
-                
+                connection.Open();                
                 
                 try
                 {
@@ -93,7 +91,6 @@ namespace Projekt_Poig.DAL.Repozytoria
                     Console.WriteLine("Blad" + e);
                 }
 
-                //typ_gracza.Id_typu = (sbyte)command.LastInsertedId;
                 connection.Close();
             }
             return stan;

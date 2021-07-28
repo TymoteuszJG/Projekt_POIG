@@ -60,6 +60,10 @@ namespace Projekt_Poig.DAL.Encje
             Horror = horror;
             Przygodowa = przygodowa;
         }
+        public Atrybut(int id_gry)
+        {
+            Id_gry = id_gry;
+        }
         public Atrybut(Atrybut atrybut)
         {
             Id_gry = atrybut.Id_gry;
@@ -84,6 +88,62 @@ namespace Projekt_Poig.DAL.Encje
         public string ToInsert()
         {
             return $"({Id_gry}, {Single_Player}, {Multiplayer}, {FPS}, {Open_World}, {Fabularna}, {Strategia}, {RPG}, {RogueLike}, {Akcja}, {Puzzle}, {Symulacja}, {Horror}, {Przygodowa})";
+        }
+        public string ZwrocID()
+        {
+            return $"{Id_gry}";
+        }
+        public string ZwrocSingleplayer()
+        {
+            return $"{Single_Player}";
+        }
+        public string ZwrocMultiplayer()
+        {
+            return $"{Multiplayer}";
+        }
+        public string ZwrocFPS()
+        {
+            return $"{FPS}";
+        }
+        public string ZwrocOpenWorld()
+        {
+            return $"{Open_World}";
+        }
+        public string ZwrocFabularna()
+        {
+            return $"{Fabularna}";
+        }
+        public string ZwrocStrategia()
+        {
+            return $"{Strategia}";
+        }
+        public string ZwrocRPG()
+        {
+            return $"{RPG}";
+        }
+        public string ZwrocRogueLike()
+        {
+            return $"{RogueLike}";
+        }
+        public string ZwrocAkcja()
+        {
+            return $"{Akcja}";
+        }
+        public string ZwrocPuzzle()
+        {
+            return $"{Puzzle}";
+        }
+        public string ZwrocSymulacja()
+        {
+            return $"{Symulacja}";
+        }
+        public string ZwrocHorror()
+        {
+            return $"{Horror}";
+        }
+        public string ZwrocPrzygodowa()
+        {
+            return $"{Przygodowa}";
         }
     }
 }

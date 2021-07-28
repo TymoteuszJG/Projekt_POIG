@@ -15,6 +15,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -25,8 +26,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Grid.Row="4" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
-            <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza , Mode=TwoWay}"/>
-            <TextBox Grid.Row="1" Text="{Binding TypVM.Opis, Mode=TwoWay}"/>
+            <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Grid.Row="1" Text="{Binding TypVM.Opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Grid.Row="3" Command="{Binding TypVM.Usun}" Content="Usun"/>
             <Button Grid.Row="2" Command="{Binding TypVM.Edytuj}" Content="Edytuj"/>
         </Grid>
@@ -35,7 +36,7 @@
             
             <DataGrid x:Name="lista_gier" 
                   SelectedItem="{Binding TypVM.BiezacyTyp}" 
-                  ItemsSource="{Binding TypVM.Typ}" 
+                  ItemsSource="{Binding TypVM.FiltrujTypy}" 
                   VerticalContentAlignment="Top" 
                   AutoGenerateColumns="False"
                   GridLinesVisibility="None"
@@ -56,6 +57,9 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
+        </Grid>
+        <Grid Grid.Column="2">
+            <TextBox Height="30" Margin="10" VerticalAlignment="Top" Text="{Binding TypVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </UserControl>
