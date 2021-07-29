@@ -50,15 +50,18 @@ namespace Projekt_Poig.DAL.Repozytoria
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                //MySqlCommand reset = new MySqlCommand(RESET, connection);
                 MySqlCommand command = new MySqlCommand($"{DODAJ_GRE} {gry.ToInsert()}", connection);
-                /*connection.Open();
-                var reseter = reset.ExecuteReader();
-                connection.Close();*/
                 connection.Open();
-                var id = command.ExecuteNonQuery();
-                stan = true;
-                gry.Id_gry = (int)command.LastInsertedId;
+                try
+                {
+                    var id = command.ExecuteNonQuery();
+                    stan = true;
+                    gry.Id_gry = (int)command.LastInsertedId;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Blad" + e);
+                }
                 connection.Close();
             }
             return stan;

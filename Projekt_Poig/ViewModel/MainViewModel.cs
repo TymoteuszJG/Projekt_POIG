@@ -19,6 +19,7 @@ namespace Projekt_Poig.ViewModel
         public AtrybutViewModel AtrybutVM { get; set; }
         public GryViewModel GraVM { get; set; }
         public TypyViewModel TypVM { get; set; }
+        public TypyGierViewModel TypyGierVM { get; set; }
         public NavigateViewModel NavigateVM { get; set; }
         public MainViewModel()
         {
@@ -28,6 +29,7 @@ namespace Projekt_Poig.ViewModel
             AtrybutVM = new AtrybutViewModel(model);
             GraVM = new GryViewModel(model);
             TypVM = new TypyViewModel(model);
+            TypyGierVM = new TypyGierViewModel(model);
             NavigateVM = new NavigateViewModel(navigation);
         }
     }

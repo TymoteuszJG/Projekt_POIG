@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
         xmlns:view="clr-namespace:Projekt_Poig.View"
-        Title="MainWindow" Height="700" Width="1050">
+        Title="MainWindow" Height="700" Width="1300">
 
 
     <Grid>
@@ -26,6 +26,7 @@
             <Button Grid.Column="0" Width="50" Content="Gry" Command="{Binding NavigateGryCommand}" HorizontalAlignment="Left"/>
             <Button Grid.Column="1" Width="50" Content="Atrybuty" Command="{Binding NavigateAtrybutyCommand}" HorizontalAlignment="Left" Margin="50,0,0,0"/>
             <Button Grid.Column="2" Width="50" Content="Typy" Command="{Binding NavigateTypyCommand}" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+            <Button Grid.Column="3" Width="60" Content="Typy gier" Command="{Binding NavigateTypyGierCommand}" HorizontalAlignment="Left" Margin="150,0,0,0"/>
         </Grid>
 
         <Grid Grid.Row="1" >
@@ -39,6 +40,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:TypyViewModel}">
                         <view:Typy_tabela/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:TypyGierViewModel}">
+                        <view:TypyGier_view/>
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>

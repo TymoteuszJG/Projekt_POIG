@@ -14,6 +14,7 @@ namespace Projekt_Poig.Model
         public ObservableCollection<Gra> Gry { get; set; } = new ObservableCollection<Gra>();
         public ObservableCollection<Atrybut> Atrybuty { get; set; } = new ObservableCollection<Atrybut>();
         public ObservableCollection<Typ> Typy { get; set; } = new ObservableCollection<Typ>();
+        public ObservableCollection<TypyGier> TypyGry { get; set; } = new ObservableCollection<TypyGier>();
         public ObservableCollection<string> Combo { get; set; } = new ObservableCollection<string>();
         public ObservableCollection<int> Comboid { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<int> Ida { get; set; } = new ObservableCollection<int>();
@@ -34,6 +35,9 @@ namespace Projekt_Poig.Model
             var typy = RepozytoriumTypy.PobierzWszystkieTypy();
             foreach (var t in typy)
                 Typy.Add(t);
+            var typgier = RepozytoriumTypyGier.PobierzWszystkieTypyGier();
+            foreach (var tg in typgier)
+                TypyGry.Add(tg);
             foreach (var c in typy)
             {
                 Combo.Add(c.Nazwa_gracza);

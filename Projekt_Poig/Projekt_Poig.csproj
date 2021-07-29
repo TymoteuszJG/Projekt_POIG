@@ -66,9 +66,11 @@
     <Compile Include="DAL\Encje\Atrybut.cs" />
     <Compile Include="DAL\Encje\Gra.cs" />
     <Compile Include="DAL\Encje\Typ.cs" />
+    <Compile Include="DAL\Encje\TypyGier.cs" />
     <Compile Include="DAL\Repozytoria\RepozytoriumAtrybuty.cs" />
     <Compile Include="DAL\Repozytoria\RepozytoriumGry.cs" />
     <Compile Include="DAL\Repozytoria\RepozytoriumTypy.cs" />
+    <Compile Include="DAL\Repozytoria\RepozytoriumTypyGier.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="ViewModel\AtrybutViewModel.cs" />
     <Compile Include="ViewModel\BaseClass\RelayCommand.cs" />
@@ -76,7 +78,11 @@
     <Compile Include="ViewModel\GryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigateViewModel.cs" />
+    <Compile Include="ViewModel\TypyGierViewModel.cs" />
     <Compile Include="ViewModel\TypyViewModel.cs" />
+    <Compile Include="View\TypyGier_view.xaml.cs">
+      <DependentUpon>TypyGier_view.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Typy_tabela.xaml.cs">
       <DependentUpon>Typy_tabela.xaml</DependentUpon>
     </Compile>
@@ -106,6 +112,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\TypyGier_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Typy_tabela.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

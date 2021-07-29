@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="1300">
     <UserControl.Resources>
         <vm:MainViewModel x:Key="mainViewModel"/>
     </UserControl.Resources>
@@ -19,17 +19,22 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="4" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
-            <TextBox Grid.Row="0" Text="{Binding TypVM.Nazwa_gracza , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Grid.Row="1" Text="{Binding TypVM.Opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Grid.Row="3" Command="{Binding TypVM.Usun}" Content="Usun"/>
-            <Button Grid.Row="2" Command="{Binding TypVM.Edytuj}" Content="Edytuj"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="9" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="9" Grid.Column="0" Text="Opis gracza :" VerticalAlignment="Bottom"/>
+            <TextBox Grid.Row="1" Margin="5" Text="{Binding TypVM.Nazwa_gracza , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="20"/>
+            <TextBox Grid.Row="3" Margin="5" Text="{Binding TypVM.Opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Row="5" Height="50" Width="100" Command="{Binding TypVM.Edytuj}" Content="Edytuj"/>
+            <Button Grid.Row="6" Height="50" Width="100" Command="{Binding TypVM.Usun}" Content="Usun"/>
+            <Button Grid.Row="7" Height="50" Width="100" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -46,7 +51,7 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_typu}"/>
-                    <DataGridTextColumn Width="100" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
+                    <DataGridTextColumn Width="200" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
                     <DataGridTextColumn Width="*" Header="Opis" Binding="{Binding Opis}"/>
 
 
@@ -59,7 +64,12 @@
             </DataGrid>
         </Grid>
         <Grid Grid.Column="2">
-            <TextBox Height="30" Margin="10" VerticalAlignment="Top" Text="{Binding TypVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Szukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            <TextBox Height="20" Grid.Row="1" Margin="10" VerticalAlignment="Top" Text="{Binding TypVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </UserControl>

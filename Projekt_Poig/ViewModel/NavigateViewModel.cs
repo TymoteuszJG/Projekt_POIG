@@ -15,6 +15,7 @@ namespace Projekt_Poig.ViewModel
         public ICommand NavigateGryCommand { get; }
         public ICommand NavigateAtrybutyCommand { get; }
         public ICommand NavigateTypyCommand { get; }
+        public ICommand NavigateTypyGierCommand { get; }
 
         private readonly Navigation _navigation;
 
@@ -26,6 +27,7 @@ namespace Projekt_Poig.ViewModel
             NavigateGryCommand = new NavigateCommand<GryViewModel>(navigation, () => new GryViewModel(model));
             NavigateAtrybutyCommand = new NavigateCommand<AtrybutViewModel>(navigation, () => new AtrybutViewModel(model));
             NavigateTypyCommand = new NavigateCommand<TypyViewModel>(navigation, () => new TypyViewModel(model));
+            NavigateTypyGierCommand = new NavigateCommand<TypyGierViewModel>(navigation, () => new TypyGierViewModel(model));
             _navigation = navigation;
             _navigation.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }

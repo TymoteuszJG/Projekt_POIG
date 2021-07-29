@@ -37,19 +37,10 @@ namespace Projekt_Poig.DAL.Repozytoria
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                //MySqlCommand reset = new MySqlCommand(RESET, connection);
                 MySqlCommand command = new MySqlCommand($"{EDIT_TYP_1} '{Nazwa_Gracza}' {EDIT_TYP_2} '{opis}' {EDIT_TYP_3} {ID}", connection);
-                /*connection.Open();
-                var reseter = reset.ExecuteReader();
-                connection.Close();*/
                 connection.Open();
-                //var id =
-                Console.WriteLine($"{EDIT_TYP_1} '{Nazwa_Gracza}' {EDIT_TYP_2} '{opis}' {EDIT_TYP_3} {ID}",connection);
-                Console.WriteLine();
-                Console.WriteLine();
                 command.ExecuteNonQuery();
                 stan = true;
-                //typ_gracza.Id_typu = (int)command.LastInsertedId;
                 connection.Close();
             }
             return stan;
@@ -59,15 +50,18 @@ namespace Projekt_Poig.DAL.Repozytoria
             bool stan = false;
             using (var connection = DBConnection.Instance.Connection)
             {
-                //MySqlCommand reset = new MySqlCommand(RESET, connection);
                 MySqlCommand command = new MySqlCommand($"{DODAJ_TYP} {typ_gracza.ToInsert()}", connection);
-                /*connection.Open();
-                var reseter = reset.ExecuteReader();
-                connection.Close();*/
                 connection.Open();
-                var id = command.ExecuteNonQuery();
-                stan = true;
-                typ_gracza.Id_typu = (int)command.LastInsertedId;
+                try
+                {
+                    var id = command.ExecuteNonQuery();
+                    stan = true;
+                    typ_gracza.Id_typu = (int)command.LastInsertedId;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Blad" + e);
+                }
                 connection.Close();
             }
             return stan;
