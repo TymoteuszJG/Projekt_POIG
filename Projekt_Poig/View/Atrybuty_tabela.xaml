@@ -7,7 +7,9 @@
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1300">
+             d:DesignHeight="700" d:DesignWidth="1300"
+             Background="White">
+    
     <UserControl.Resources>
         <vm:MainViewModel x:Key="mainViewModel"/>
     </UserControl.Resources>
@@ -16,6 +18,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
@@ -100,7 +103,7 @@
         <DataGrid x:Name="lista_atrybutów" 
                   Grid.Column="1"
                   SelectedItem="{Binding AtrybutVM.BiezacyAtrybut}" 
-                  ItemsSource="{Binding AtrybutVM.Atrybut}" 
+                  ItemsSource="{Binding AtrybutVM.FiltrujTypyAtrybuty}" 
                   VerticalContentAlignment="Top" 
                   AutoGenerateColumns="False"
                   GridLinesVisibility="None"
@@ -131,5 +134,25 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </DataGrid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="5,0,0,5" Grid.Row="0" FontSize="15" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <ComboBox Grid.Row="1" Margin="5" Height="30" ItemsSource="{Binding AtrybutVM.NazwaAtrybutow}"  SelectedIndex="{Binding AtrybutVM.Nazwaatrybutu,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="12" Grid.Column="0" Text="Od :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" FontSize="12" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding ElementName=filtr, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" Grid.Row="3" x:Name="filtr" Maximum="{Binding ElementName=filtr2, Path=Value}" Value="{Binding AtrybutVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="4" FontSize="12" Grid.Column="0" VerticalAlignment="Bottom" Text="Do :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" FontSize="12" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding ElementName=filtr2, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" Grid.Row="5" x:Name="filtr2" Minimum="{Binding ElementName=filtr, Path=Value}" Maximum="100" Value="{Binding AtrybutVM.Filtr2,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <Button Grid.Row="28" Margin="10" Command="{Binding AtrybutVM.Reset}" Content="Reset"/>
+        </Grid>
     </Grid>
 </UserControl>
