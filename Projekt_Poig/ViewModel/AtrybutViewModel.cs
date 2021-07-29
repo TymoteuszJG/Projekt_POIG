@@ -22,6 +22,8 @@ namespace Projekt_Poig.ViewModel
         private ObservableCollection<int> niemaid = null;
         private ObservableCollection<string> niemaidnazwa = null;
         private string nazwa_gry = null;
+        private int nazwaatrybutu = -1;
+        private List<string> nazwyatrybutow = new List<string> { "Single_Player", "Multiplayer", "FPS", "Open_World", "Fabularna", "Strategia", "RPG", "RogueLike", "Akcja", "Puzzle", "Symulacja", "Horror", "Przygodowa" };
         private int id_gry = -1, idZaznaczenia = -1, index_atrybutu;
         private int singleplayer=0, multiplayer = 0, fps = 0, openworld = 0, fabularna = 0, strategia = 0, rpg = 0, roguelike = 0, akcja = 0, puzzle = 0, symulacja = 0, horror = 0, przygodowa = 0;
 
@@ -29,6 +31,9 @@ namespace Projekt_Poig.ViewModel
         private ICommand usun = null;
         private ICommand edytuj = null;
         private ICommand zaladuj_atrybut = null;
+        private ICommand reset = null;
+        public ICollectionView FiltrujTypyAtrybuty { get; }
+        private int filtr = 0, filtr2 = 100;
 
         public ICommand Dodaj
         {
@@ -55,6 +60,27 @@ namespace Projekt_Poig.ViewModel
                 return dodaj;
             }
 
+        }
+    public ICommand Reset
+        {
+
+            get
+            {
+                if (reset == null)
+                    reset = new RelayCommand(
+                        arg =>
+                        {
+                            Nazwaatrybutu = -1;
+                            Filtr = 0;
+                            Filtr2 = 100;
+                        }
+                        ,
+                        arg => true
+                        );
+
+
+                return reset;
+            }
         }
         public ICommand Usun
         {
@@ -150,6 +176,21 @@ namespace Projekt_Poig.ViewModel
 
             }
         }
+        public List<string> NazwaAtrybutow
+        {
+            get { return nazwyatrybutow; }
+        }
+        public int Nazwaatrybutu
+        {
+            get { return nazwaatrybutu; }
+            set
+            {
+                nazwaatrybutu = value;
+                Filtr = 0;
+                Filtr2 = 100;
+                OnPropertyChanged(nameof(Nazwaatrybutu));
+            }
+        }
 
         public AtrybutViewModel(Model model)
         {
@@ -159,10 +200,59 @@ namespace Projekt_Poig.ViewModel
             ida = model.Ida;
             niemaid = model.Niemaid;
             niemaidnazwa = model.Niemaidnazwa;
-            
+            FiltrujTypyAtrybuty = CollectionViewSource.GetDefaultView(atrybut);
+            FiltrujTypyAtrybuty.Filter = FiltrAtrybuty;
         }
         public Atrybut BiezacyAtrybut{ get; set; }
 
+        public int Filtr
+        {
+            get
+            {
+                return filtr;
+            }
+            set
+            {
+                filtr = value;
+                OnPropertyChanged(nameof(Filtr));
+                FiltrujTypyAtrybuty.Refresh();
+            }
+        }
+        public int Filtr2
+        {
+            get
+            {
+                return filtr2;
+            }
+            set
+            {
+                filtr2 = value;
+                OnPropertyChanged(nameof(Filtr2));
+                FiltrujTypyAtrybuty.Refresh();
+            }
+        }
+        private bool FiltrAtrybuty(object obj)
+        {
+            if (obj is Atrybut atrybut)
+            {
+                if (nazwaatrybutu == -1) return true;
+                if (nazwaatrybutu == 0) if (atrybut.Single_Player >= filtr && atrybut.Single_Player <= filtr2) return true;
+                if (nazwaatrybutu == 1) if (atrybut.Multiplayer >= filtr && atrybut.Multiplayer <= filtr2) return true;
+                if (nazwaatrybutu == 2) if (atrybut.FPS >= filtr && atrybut.FPS <= filtr2) return true;
+                if (nazwaatrybutu == 3) if (atrybut.Open_World >= filtr && atrybut.Open_World <= filtr2) return true;
+                if (nazwaatrybutu == 4) if (atrybut.Fabularna >= filtr && atrybut.Fabularna <= filtr2) return true;
+                if (nazwaatrybutu == 5) if (atrybut.Strategia >= filtr && atrybut.Strategia <= filtr2) return true;
+                if (nazwaatrybutu == 6) if (atrybut.RPG >= filtr && atrybut.RPG <= filtr2) return true;
+                if (nazwaatrybutu == 7) if (atrybut.RogueLike >= filtr && atrybut.RogueLike <= filtr2) return true;
+                if (nazwaatrybutu == 8) if (atrybut.Akcja >= filtr && atrybut.Akcja <= filtr2) return true;
+                if (nazwaatrybutu == 9) if (atrybut.Puzzle >= filtr && atrybut.Puzzle <= filtr2) return true;
+                if (nazwaatrybutu == 10) if (atrybut.Symulacja >= filtr && atrybut.Symulacja <= filtr2) return true;
+                if (nazwaatrybutu == 11) if (atrybut.Horror >= filtr && atrybut.Horror <= filtr2) return true;
+                if (nazwaatrybutu == 12) if (atrybut.Przygodowa >= filtr && atrybut.Przygodowa <= filtr2) return true;
+                return false;
+            }
+            return false;
+        }
         private void CzyscFormularz()
         {
             idZaznaczenia = -1;
