@@ -37,7 +37,7 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Szukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
             <TextBox Height="20" Grid.Row="1" Margin="10" VerticalAlignment="Top" Text="{Binding TypyGierVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>

@@ -27,14 +27,15 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="9" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
-            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="9" Grid.Column="0" Text="Opis gracza :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="15" Grid.Column="0" Text="Opis gracza :" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="5" Text="{Binding TypVM.Nazwa_gracza , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="20"/>
             <TextBox Grid.Row="3" Margin="5" Text="{Binding TypVM.Opis, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Grid.Row="5" Height="50" Width="100" Command="{Binding TypVM.Edytuj}" Content="Edytuj"/>
-            <Button Grid.Row="6" Height="50" Width="100" Command="{Binding TypVM.Usun}" Content="Usun"/>
-            <Button Grid.Row="7" Height="50" Width="100" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
+            <Button Grid.Row="6" FontSize="23" Height="65" Width="120" Command="{Binding TypVM.Edytuj}" Content="Edytuj"/>
+            <Button Grid.Row="7" FontSize="23" Height="65" Width="120" Command="{Binding TypVM.Usun}" Content="Usuń"/>
+            <Button Grid.Row="5" FontSize="23" Height="65" Width="120" Command="{Binding TypVM.Dodaj}" Content="Dodaj"/>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -50,7 +51,7 @@
                   ScrollViewer.CanContentScroll="False">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_typu}"/>
+                    <DataGridTextColumn Width="70" Header="ID Gracza" Binding="{Binding Id_typu}"/>
                     <DataGridTextColumn Width="200" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
                     <DataGridTextColumn Width="*" Header="Opis" Binding="{Binding Opis}"/>
 
@@ -66,10 +67,10 @@
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Szukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-            <TextBox Height="20" Grid.Row="1" Margin="10" VerticalAlignment="Top" Text="{Binding TypVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <TextBox Height="25" Grid.Row="1" Margin="10" VerticalAlignment="Top" Text="{Binding TypVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -23,19 +23,36 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="7" Command="{Binding GraVM.Usun}" Content="Usun"/>
-            <Button Grid.Row="6" Command="{Binding GraVM.Dodaj}" Content="Dodaj"/>
-            <Button Grid.Row="5" Command="{Binding GraVM.Edytuj}" Content="Edytuj"/>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="9" Grid.Column="0" Text="Nazwa gry :" VerticalAlignment="Bottom"/>
-            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="9" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
+            
+            <Button Grid.Row="7" 
+                    FontSize="27"
+                    Width="120"
+                    Height="60"
+                    Command="{Binding GraVM.Usun}" Content="Usuń"/>
+            <Button Grid.Row="5" 
+                    FontSize="27"
+                    Width="120"
+                    Height="60"
+                    Command="{Binding GraVM.Dodaj}" Content="Dodaj"/>
+            <Button Grid.Row="6"
+                    FontSize="27"
+                    Width="120"
+                    Height="60"
+                    Command="{Binding GraVM.Edytuj}" Content="Edytuj"/>
+            
+            
+            
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="Nazwa gry :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="15" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="5" Text="{Binding GraVM.Nazwa_gry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="50"/>
-            <ComboBox Grid.Row="3" Margin="5" ItemsSource="{Binding GraVM.Combo}"  SelectedItem="{Binding GraVM.Nazwa_gracza,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding GraVM.IdZaznaczenia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox Grid.Row="3" Margin="5" Height="22" ItemsSource="{Binding GraVM.Combo}"  SelectedItem="{Binding GraVM.Nazwa_gracza,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding GraVM.IdZaznaczenia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
         
         <DataGrid 
@@ -65,9 +82,9 @@
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Szukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="left"/>
             <TextBox Height="30" Grid.Row="1" Margin="10" MaxLength="50" VerticalAlignment="Top" Text="{Binding GraVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>

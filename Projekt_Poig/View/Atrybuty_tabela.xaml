@@ -19,9 +19,9 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="15"/>
                 <RowDefinition Height="20"/>
@@ -50,10 +50,10 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
+                
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="9" Grid.Column="0" Text="Nazwa gry :"/>
-            <ComboBox Grid.Row="1" Margin="5" Height="30" ItemsSource="{Binding AtrybutVM.Niemaidnazwa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding AtrybutVM.Nazwa_gry}" SelectedIndex="{Binding AtrybutVM.IdZaznaczenia,Mode=TwoWay}"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="Nazwa gry :"/>
+            <ComboBox Grid.Row="1" Margin="5" Height="25" ItemsSource="{Binding AtrybutVM.Niemaidnazwa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding AtrybutVM.Nazwa_gry}" SelectedIndex="{Binding AtrybutVM.IdZaznaczenia,Mode=TwoWay}"/>
             <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="9" Grid.Column="0" Text="Singleplayer :"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="2" FontSize="9" Grid.Column="1" Text="{Binding ElementName=singleplayer, Path=Value}"  HorizontalAlignment="Right" />
             <Slider Margin="5,0,5,0" x:Name="singleplayer" Grid.Row="3" Maximum="100" Value="{Binding AtrybutVM.Singleplayer}" TickFrequency="1" IsSnapToTickEnabled="True" />
@@ -93,9 +93,9 @@
             <TextBlock Margin="5,0,0,0" Grid.Row="26" FontSize="9" Grid.Column="0" Text="Przygodowa :"/>
             <TextBlock Margin="0,0,5,0" Grid.Row="26" FontSize="9" Grid.Column="1" Text="{Binding ElementName=przygodowa, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
             <Slider Margin="5,0,5,0" x:Name="przygodowa" Grid.Row="27" Maximum="100" Value="{Binding AtrybutVM.Przygodowa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
-            <Button Grid.Row="30" Margin="10" Command="{Binding AtrybutVM.Dodaj}" Content="Dodaj"/>
-            <Button Grid.Row="29" Margin="10" Command="{Binding AtrybutVM.Usun}" Content="Usun"/>
-            <Button Grid.Row="28" Margin="10" Command="{Binding AtrybutVM.Edytuj}" Content="Edytuj"/>
+            <Button Width="110" FontSize="20" Grid.Row="28" Margin="10" Command="{Binding AtrybutVM.Dodaj}" Content="Dodaj"/>
+            <Button Width="110" FontSize="20" Grid.Row="30" Margin="10" Command="{Binding AtrybutVM.Usun}" Content="Usuń"/>
+            <Button Width="110" FontSize="20" Grid.Row="29" Margin="10" Command="{Binding AtrybutVM.Edytuj}" Content="Edytuj"/>
         </Grid>
         <DataGrid x:Name="lista_atrybutów" 
                   Grid.Column="1"
