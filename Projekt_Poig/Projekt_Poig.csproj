@@ -34,9 +34,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ikona.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,8 +62,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Commands\Navigation.cs" />
+    <Compile Include="DAL\DBConnection.cs" />
+    <Compile Include="DAL\Encje\Atrybut.cs" />
+    <Compile Include="DAL\Encje\Gra.cs" />
+    <Compile Include="DAL\Encje\Typ.cs" />
+    <Compile Include="DAL\Encje\TypyGier.cs" />
+    <Compile Include="DAL\Repozytoria\RepozytoriumAtrybuty.cs" />
+    <Compile Include="DAL\Repozytoria\RepozytoriumGry.cs" />
+    <Compile Include="DAL\Repozytoria\RepozytoriumTypy.cs" />
+    <Compile Include="DAL\Repozytoria\RepozytoriumTypyGier.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="ViewModel\AtrybutViewModel.cs" />
     <Compile Include="ViewModel\BaseClass\RelayCommand.cs" />
+    <Compile Include="ViewModel\BaseClass\ViewModelBase.cs" />
+    <Compile Include="ViewModel\GryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NavigateViewModel.cs" />
+    <Compile Include="ViewModel\TypyGierViewModel.cs" />
+    <Compile Include="ViewModel\TypyViewModel.cs" />
+    <Compile Include="View\TypyGier_view.xaml.cs">
+      <DependentUpon>TypyGier_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Typy_tabela.xaml.cs">
+      <DependentUpon>Typy_tabela.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Atrybuty_tabela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Gry_tabela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,10 +105,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\Atrybuty_tabela.xaml.cs">
+      <DependentUpon>Atrybuty_tabela.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Gry_tabela.xaml.cs">
+      <DependentUpon>Gry_tabela.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\TypyGier_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Typy_tabela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,7 +141,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,7 +153,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Resource Include="ikona.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

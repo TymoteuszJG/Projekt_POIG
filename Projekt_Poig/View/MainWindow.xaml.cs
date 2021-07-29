@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projekt_Poig.ViewModel;
+using Projekt_Poig.Commands;
 
 namespace Projekt_Poig
 {
@@ -22,7 +24,9 @@ namespace Projekt_Poig
     {
         public MainWindow()
         {
-            InitializeComponent();
+            Navigation navigation = new Navigation();
+            DataContext = new NavigateViewModel(navigation);
+            InitializeComponent(); 
         }
     }
 }

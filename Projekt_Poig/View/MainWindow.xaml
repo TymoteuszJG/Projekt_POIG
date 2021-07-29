@@ -5,8 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_Poig"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
+        xmlns:view="clr-namespace:Projekt_Poig.View"
+        Title="Baza Gier" Height="750" Width="1300">
+
+
     <Grid>
+
+        <Grid.Resources>
+            <vm:MainViewModel x:Key="mainViewModel"/>
+        </Grid.Resources>
         
-    </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <Button Grid.Column="0" Width="90" FontSize="20" Content="Gry" Command="{Binding NavigateGryCommand}" HorizontalAlignment="Left"/>
+            <Button Grid.Column="1" Width="90" FontSize="20" Content="Atrybuty" Command="{Binding NavigateAtrybutyCommand}" HorizontalAlignment="Left" Margin="90,0,0,0"/>
+            <Button Grid.Column="2" Width="90" FontSize="20" Content="Typy" Command="{Binding NavigateTypyCommand}" HorizontalAlignment="Left" Margin="180,0,0,0"/>
+            <Button Grid.Column="3" Width="90" FontSize="20" Content="Typy gier" Command="{Binding NavigateTypyGierCommand}" HorizontalAlignment="Left" Margin="270,0,0,0"/>
+        </Grid>
+
+        <Grid Grid.Row="2" >
+            <ContentControl Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:AtrybutViewModel}">
+                        <view:Atrybuty_tabela/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:GryViewModel}">
+                        <view:Gry_tabela/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:TypyViewModel}">
+                        <view:Typy_tabela/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:TypyGierViewModel}">
+                        <view:TypyGier_view/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
+    </Grid> 
 </Window>

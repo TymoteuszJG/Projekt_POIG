@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="Projekt_Poig.View.Gry_tabela"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:local="clr-namespace:Projekt_Poig.View"
+             xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:MainViewModel x:Key="mainViewModel"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource mainViewModel}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="7" 
+                    FontSize="27"
+                    Width="120"
+                    Height="60"
+                    Command="{Binding GraVM.Usun}" Content="Usuń"/>
+            <Button Grid.Row="5" 
+                    FontSize="27"
+                    Width="120"
+                    Height="60"
+                    Command="{Binding GraVM.Dodaj}" Content="Dodaj"/>
+            <Button Grid.Row="6"
+                    FontSize="27"
+                    Width="120"
+                    Height="60"
+                    Command="{Binding GraVM.Edytuj}" Content="Edytuj"/>
+            
+            
+            
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="Nazwa gry :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="15" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
+            <TextBox Grid.Row="1" Margin="5" Text="{Binding GraVM.Nazwa_gry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="50"/>
+            <ComboBox Grid.Row="3" Margin="5" Height="22" ItemsSource="{Binding GraVM.Combo}"  SelectedItem="{Binding GraVM.Nazwa_gracza,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding GraVM.IdZaznaczenia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        
+        <DataGrid 
+            x:Name="lista_gier" 
+            SelectedItem="{Binding GraVM.BiezacaGra}" 
+            ItemsSource="{Binding GraVM.FiltrujGry}"
+            Grid.Column="1"
+            VerticalContentAlignment="Top"
+            AutoGenerateColumns="False"
+            GridLinesVisibility="None"
+            IsReadOnly="True"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" 
+            ScrollViewer.CanContentScroll="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_gry}"/>
+                <DataGridTextColumn Width="400" Header="Nazwa gry" Binding="{Binding Nazwa_gry}"/>
+                <DataGridTextColumn Width="100" Header="ID TYPU" Binding="{Binding Id_typu}"/>
+
+
+            </DataGrid.Columns>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding GraVM.Zaladuj_Gre}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="left"/>
+            <TextBox Height="30" Grid.Row="1" Margin="10" MaxLength="50" VerticalAlignment="Top" Text="{Binding GraVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+    </Grid>
+</UserControl>

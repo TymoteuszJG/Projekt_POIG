@@ -2,8 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Projekt_Poig"
+             xmlns:view="clr-namespace:Projekt_Poig.View"
+             xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

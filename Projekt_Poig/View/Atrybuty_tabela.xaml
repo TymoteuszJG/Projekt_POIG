@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="Projekt_Poig.View.Atrybuty_tabela"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt_Poig.View"
+             xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1300">
+    <UserControl.Resources>
+        <vm:MainViewModel x:Key="mainViewModel"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource mainViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                
+            </Grid.RowDefinitions>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="Nazwa gry :"/>
+            <ComboBox Grid.Row="1" Margin="5" Height="25" ItemsSource="{Binding AtrybutVM.Niemaidnazwa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding AtrybutVM.Nazwa_gry}" SelectedIndex="{Binding AtrybutVM.IdZaznaczenia,Mode=TwoWay}"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="9" Grid.Column="0" Text="Singleplayer :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" FontSize="9" Grid.Column="1" Text="{Binding ElementName=singleplayer, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="singleplayer" Grid.Row="3" Maximum="100" Value="{Binding AtrybutVM.Singleplayer}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="4" FontSize="9" Grid.Column="0" Text="Multiplayer :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" FontSize="9" Grid.Column="1" Text="{Binding ElementName=multiplayer, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="multiplayer" Grid.Row="5" Maximum="100" Value="{Binding AtrybutVM.Multiplayer}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="6" FontSize="9" Grid.Column="0" Text="FPS :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="6" FontSize="9" Grid.Column="1" Text="{Binding ElementName=fps, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="fps" Grid.Row="7" Maximum="100" Value="{Binding AtrybutVM.Fps}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="8" FontSize="9" Grid.Column="0" Text="Openworld :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="8" FontSize="9" Grid.Column="1" Text="{Binding ElementName=openworld, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="openworld" Grid.Row="9" Maximum="100" Value="{Binding AtrybutVM.Openworld}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="10" FontSize="9" Grid.Column="0" Text="Fabularna :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="10" FontSize="9" Grid.Column="1" Text="{Binding ElementName=fabularna, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="fabularna" Grid.Row="11" Maximum="100" Value="{Binding AtrybutVM.Fabularna}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="12" FontSize="9" Grid.Column="0" Text="Strategia :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="12" FontSize="9" Grid.Column="1" Text="{Binding ElementName=strategia, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="strategia" Grid.Row="13" Maximum="100" Value="{Binding AtrybutVM.Strategia}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="14" FontSize="9" Grid.Column="0" Text="RPG :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="14" FontSize="9" Grid.Column="1" Text="{Binding ElementName=rpg, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="rpg" Grid.Row="15" Maximum="100" Value="{Binding AtrybutVM.Rpg}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="16" FontSize="9" Grid.Column="0" Text="Roguelike :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="16" FontSize="9" Grid.Column="1" Text="{Binding ElementName=roguelike, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="roguelike" Grid.Row="17" Maximum="100" Value="{Binding AtrybutVM.Roguelike}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="18" FontSize="9" Grid.Column="0" Text="Akcja :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="18" FontSize="9" Grid.Column="1" Text="{Binding ElementName=akcja, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="akcja" Grid.Row="19" Maximum="100" Value="{Binding AtrybutVM.Akcja}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="20" FontSize="9" Grid.Column="0" Text="Puzzle :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="20" FontSize="9" Grid.Column="1" Text="{Binding ElementName=puzzle, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="puzzle" Grid.Row="21" Maximum="100" Value="{Binding AtrybutVM.Puzzle}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="22" FontSize="9" Grid.Column="0" Text="Symulacja :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="22" FontSize="9" Grid.Column="1" Text="{Binding ElementName=symulacja, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="symulacja" Grid.Row="23" Maximum="100" Value="{Binding AtrybutVM.Symulacja}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="24" FontSize="9" Grid.Column="0" Text="Horror :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="24" FontSize="9" Grid.Column="1" Text="{Binding ElementName=horror, Path=Value}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="horror" Grid.Row="25" Maximum="100" Value="{Binding AtrybutVM.Horror}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="26" FontSize="9" Grid.Column="0" Text="Przygodowa :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="26" FontSize="9" Grid.Column="1" Text="{Binding ElementName=przygodowa, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" x:Name="przygodowa" Grid.Row="27" Maximum="100" Value="{Binding AtrybutVM.Przygodowa,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <Button Width="110" FontSize="20" Grid.Row="28" Margin="10" Command="{Binding AtrybutVM.Dodaj}" Content="Dodaj"/>
+            <Button Width="110" FontSize="20" Grid.Row="30" Margin="10" Command="{Binding AtrybutVM.Usun}" Content="Usuń"/>
+            <Button Width="110" FontSize="20" Grid.Row="29" Margin="10" Command="{Binding AtrybutVM.Edytuj}" Content="Edytuj"/>
+        </Grid>
+        <DataGrid x:Name="lista_atrybutów" 
+                  Grid.Column="1"
+                  SelectedItem="{Binding AtrybutVM.BiezacyAtrybut}" 
+                  ItemsSource="{Binding AtrybutVM.FiltrujTypyAtrybuty}" 
+                  VerticalContentAlignment="Top" 
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="None"
+                  IsReadOnly="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                  ScrollViewer.CanContentScroll="False" RenderTransformOrigin="0.491,0.49">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Header="ID GRY" Binding="{Binding Id_gry}"/>
+                <DataGridTextColumn Width="1*" Header="Singleplayer" Binding="{Binding Single_Player}"/>
+                <DataGridTextColumn Width="1*" Header="Multiplayer" Binding="{Binding Multiplayer}"/>
+                <DataGridTextColumn Width="1*" Header="FPS" Binding="{Binding FPS}"/>
+                <DataGridTextColumn Width="1*" Header="Open World" Binding="{Binding Open_World}"/>
+                <DataGridTextColumn Width="1*" Header="Fabularna" Binding="{Binding Fabularna}"/>
+                <DataGridTextColumn Width="1*" Header="Strategia" Binding="{Binding Strategia}"/>
+                <DataGridTextColumn Width="1*" Header="RPG" Binding="{Binding RPG}"/>
+                <DataGridTextColumn Width="1*" Header="RogueLike" Binding="{Binding RogueLike}"/>
+                <DataGridTextColumn Width="1*" Header="Akcja" Binding="{Binding Akcja}"/>
+                <DataGridTextColumn Width="1*" Header="Puzzle" Binding="{Binding Puzzle}"/>
+                <DataGridTextColumn Width="1*" Header="Symulacja" Binding="{Binding Symulacja}"/>
+                <DataGridTextColumn Width="1*" Header="Horror" Binding="{Binding Horror}"/>
+                <DataGridTextColumn Width="1*" Header="Przygodowa" Binding="{Binding Przygodowa}"/>
+
+
+            </DataGrid.Columns>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding AtrybutVM.Zaladuj_Atrybut}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="5,0,0,5" Grid.Row="0" FontSize="15" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <ComboBox Grid.Row="1" Margin="5" Height="30" ItemsSource="{Binding AtrybutVM.NazwaAtrybutow}"  SelectedIndex="{Binding AtrybutVM.Nazwaatrybutu,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="12" Grid.Column="0" Text="Od :" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="2" FontSize="12" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding ElementName=filtr, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" Grid.Row="3" x:Name="filtr" Maximum="{Binding ElementName=filtr2, Path=Value}" Value="{Binding AtrybutVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <TextBlock Margin="5,0,0,0" Grid.Row="4" FontSize="12" Grid.Column="0" VerticalAlignment="Bottom" Text="Do :"/>
+            <TextBlock Margin="0,0,5,0" Grid.Row="4" FontSize="12" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding ElementName=filtr2, Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" />
+            <Slider Margin="5,0,5,0" Grid.Row="5" x:Name="filtr2" Minimum="{Binding ElementName=filtr, Path=Value}" Maximum="100" Value="{Binding AtrybutVM.Filtr2,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TickFrequency="1" IsSnapToTickEnabled="True" />
+            <Button Grid.Row="28" Margin="10" Command="{Binding AtrybutVM.Reset}" Content="Reset"/>
+        </Grid>
+    </Grid>
+</UserControl>
