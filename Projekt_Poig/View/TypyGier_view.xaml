@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:lang="clr-namespace:Projekt_Poig.Properties.Lang"
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
              mc:Ignorable="d" 
@@ -26,8 +27,8 @@
                   ScrollViewer.CanContentScroll="False">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Header="Nazwa gry" Binding="{Binding Nazwa_gry}"/>
-                    <DataGridTextColumn Width="*" Header="Nazwa gracza" Binding="{Binding Nazwa_gracza}"/>
+                <DataGridTextColumn Width="*" Header="{x:Static lang:Lang.GT_Name}" Binding="{Binding Nazwa_gry}"/>
+                <DataGridTextColumn Width="*" Header="{x:Static lang:Lang.TT_Player}" Binding="{Binding Nazwa_gracza}"/>
 
 
                 </DataGrid.Columns>
@@ -37,7 +38,7 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Text="{x:Static lang:Lang.SEARCH}" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
             <TextBox Height="20" Grid.Row="1" Margin="10" VerticalAlignment="Top" Text="{Binding TypyGierVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>

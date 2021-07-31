@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Projekt_Poig.Properties.Lang;
 
 namespace Projekt_Poig.DAL.Repozytoria
 {
@@ -17,6 +18,8 @@ namespace Projekt_Poig.DAL.Repozytoria
         private const string EDIT_TYP_1 = "UPDATE `typ_gracza` SET `Nazwa_Gracza`=";
         private const string EDIT_TYP_2 = ",`Opis`=";
         private const string EDIT_TYP_3 = " where `id_Typu`=";
+
+        static string bug = Lang.BUG_2;
 
         public static List<Typ> PobierzWszystkieTypy()
         {
@@ -52,6 +55,8 @@ namespace Projekt_Poig.DAL.Repozytoria
             {
                 MySqlCommand command = new MySqlCommand($"{DODAJ_TYP} {typ_gracza.ToInsert()}", connection);
                 connection.Open();
+                bug = Lang.BUG_2;
+
                 try
                 {
                     var id = command.ExecuteNonQuery();
@@ -60,7 +65,7 @@ namespace Projekt_Poig.DAL.Repozytoria
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Blad" + e);
+                    System.Windows.MessageBox.Show(bug);
                 }
                 connection.Close();
             }
@@ -73,8 +78,9 @@ namespace Projekt_Poig.DAL.Repozytoria
             using (var connection = DBConnection.Instance.Connection)
             {
                 MySqlCommand command = new MySqlCommand($"{USUN_TYP} {typ_gracza.ZwrocID()}", connection);
-                connection.Open();                
-                
+                connection.Open();
+                bug = Lang.BUG_2;
+
                 try
                 {
                     command.ExecuteNonQuery();
@@ -82,7 +88,7 @@ namespace Projekt_Poig.DAL.Repozytoria
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Blad" + e);
+                    System.Windows.MessageBox.Show(bug);
                 }
 
                 connection.Close();

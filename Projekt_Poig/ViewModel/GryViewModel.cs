@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Data;
+using Projekt_Poig.Properties.Lang;
 
 namespace Projekt_Poig.ViewModel
 {
@@ -30,6 +31,10 @@ namespace Projekt_Poig.ViewModel
         public ICollectionView FiltrujGry{ get; }
         private string filtr = string.Empty;
 
+        static string edit = Lang.Gry_Edit;
+        static string add = Lang.Gry_Add;
+        static string del = Lang.Gry_Del;
+
         public ICommand Dodaj
         {
 
@@ -41,11 +46,12 @@ namespace Projekt_Poig.ViewModel
                         {
                             id_typu = model.ZnajdzIdPoTypie(nazwa_gracza);
                             var gra = new Gra(Nazwa_gry, id_typu);
+                            add = Lang.Gry_Add;
 
                             if (model.DodajGreDoBazy(gra))
                             {
                                 CzyscFormularz();
-                                System.Windows.MessageBox.Show("Pomyslnie dodales gre");
+                                System.Windows.MessageBox.Show(add);
                             }
                         }
                         ,
@@ -67,12 +73,13 @@ namespace Projekt_Poig.ViewModel
                         arg =>
                         {
                             var gra = new Gra(Nazwa_gry, Id_typu);
+                            del = Lang.Gry_Del;
 
 
                             if (model.UsunGreZBazy(BiezacaGra))
                             {
                                 CzyscFormularz();
-                                System.Windows.MessageBox.Show("Pomyslnie usunales gre");
+                                System.Windows.MessageBox.Show(del);
                             }
                         }
                         ,
@@ -90,11 +97,13 @@ namespace Projekt_Poig.ViewModel
             get
             {
                 if (edytuj == null)
+
                     edytuj = new RelayCommand(
                         arg =>
                         {
                             id_typu = model.ZnajdzIdPoTypie(nazwa_gracza);
                             var gra = new Gra(Nazwa_gry,id_typu, int.Parse(BiezacaGra.ZwrocID()));
+                            edit = Lang.Gry_Edit;
 
 
                             if (model.EdytujGreZBazy(Nazwa_gry, id_typu, BiezacaGra.ZwrocID()))
@@ -103,7 +112,7 @@ namespace Projekt_Poig.ViewModel
                                 index_gry = Gra.IndexOf(BiezacaGra);
                                 Gra[index_gry] = gra;
                                 index_gry = -1;
-                                System.Windows.MessageBox.Show("Pomyslnie edytowales gre");
+                                System.Windows.MessageBox.Show(edit);
                             }
                         }
                         ,

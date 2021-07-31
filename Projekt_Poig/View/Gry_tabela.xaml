@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:lang="clr-namespace:Projekt_Poig.Properties.Lang"
              xmlns:local="clr-namespace:Projekt_Poig.View"
              xmlns:vm="clr-namespace:Projekt_Poig.ViewModel"
              mc:Ignorable="d" 
@@ -35,22 +36,22 @@
                     FontSize="27"
                     Width="120"
                     Height="60"
-                    Command="{Binding GraVM.Usun}" Content="Usuń"/>
+                    Command="{Binding GraVM.Usun}" Content="{x:Static lang:Lang.DELETE}"/>
             <Button Grid.Row="5" 
                     FontSize="27"
                     Width="120"
                     Height="60"
-                    Command="{Binding GraVM.Dodaj}" Content="Dodaj"/>
+                    Command="{Binding GraVM.Dodaj}" Content="{x:Static lang:Lang.ADD}"/>
             <Button Grid.Row="6"
                     FontSize="27"
                     Width="120"
                     Height="60"
-                    Command="{Binding GraVM.Edytuj}" Content="Edytuj"/>
-            
-            
-            
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="Nazwa gry :" VerticalAlignment="Bottom"/>
-            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="15" Grid.Column="0" Text="Nazwa gracza :" VerticalAlignment="Bottom"/>
+                    Command="{Binding GraVM.Edytuj}" Content="{x:Static lang:Lang.EDIT}"/>
+
+
+
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="15" Grid.Column="0" Text="{x:Static lang:Lang.GT_Game_}" VerticalAlignment="Bottom"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="2" FontSize="15" Grid.Column="0" Text="{x:Static lang:Lang.GT_Player_}" VerticalAlignment="Bottom"/>
             <TextBox Grid.Row="1" Margin="5" Text="{Binding GraVM.Nazwa_gry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="50"/>
             <ComboBox Grid.Row="3" Margin="5" Height="22" ItemsSource="{Binding GraVM.Combo}"  SelectedItem="{Binding GraVM.Nazwa_gracza,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding GraVM.IdZaznaczenia,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
@@ -67,9 +68,9 @@
             ScrollViewer.VerticalScrollBarVisibility="Visible" 
             ScrollViewer.CanContentScroll="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="50" Header="ID GRY" Binding="{Binding Id_gry}"/>
-                <DataGridTextColumn Width="400" Header="Nazwa gry" Binding="{Binding Nazwa_gry}"/>
-                <DataGridTextColumn Width="100" Header="ID TYPU" Binding="{Binding Id_typu}"/>
+                <DataGridTextColumn Width="55" Header="{x:Static lang:Lang.GT_idGame}" Binding="{Binding Id_gry}"/>
+                <DataGridTextColumn Width="400" Header="{x:Static lang:Lang.GT_Name}" Binding="{Binding Nazwa_gry}"/>
+                <DataGridTextColumn Width="100" Header="{x:Static lang:Lang.GT_idType}" Binding="{Binding Id_typu}"/>
 
 
             </DataGrid.Columns>
@@ -84,7 +85,7 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="Wyszukaj :" VerticalAlignment="Bottom" HorizontalAlignment="left"/>
+            <TextBlock Margin="5,0,0,0" Grid.Row="0" FontSize="12" Text="{x:Static lang:Lang.SEARCH}" VerticalAlignment="Bottom" HorizontalAlignment="left"/>
             <TextBox Height="30" Grid.Row="1" Margin="10" MaxLength="50" VerticalAlignment="Top" Text="{Binding GraVM.Filtr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
