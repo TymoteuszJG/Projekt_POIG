@@ -26,6 +26,7 @@ namespace Projekt_Poig
         {
             Navigation navigation = new Navigation();
             DataContext = new NavigateViewModel(navigation);
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent(); 
         }
     }

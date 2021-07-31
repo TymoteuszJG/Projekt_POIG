@@ -17,6 +17,8 @@ namespace Projekt_Poig.ViewModel
         private Navigation navigation = new Navigation();
 
         public AtrybutViewModel AtrybutVM { get; set; }
+
+        public JezykiViewModel JezykiVM { get; set; }
         public GryViewModel GraVM { get; set; }
         public TypyViewModel TypVM { get; set; }
         public TypyGierViewModel TypyGierVM { get; set; }
@@ -29,6 +31,7 @@ namespace Projekt_Poig.ViewModel
             AtrybutVM = new AtrybutViewModel(model);
             GraVM = new GryViewModel(model);
             TypVM = new TypyViewModel(model);
+            JezykiVM = new JezykiViewModel();
             TypyGierVM = new TypyGierViewModel(model);
             NavigateVM = new NavigateViewModel(navigation);
         }

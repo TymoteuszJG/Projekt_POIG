@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
+using Projekt_Poig.Properties.Lang;
 
 
 namespace Projekt_Poig.ViewModel
@@ -27,6 +28,13 @@ namespace Projekt_Poig.ViewModel
         private string filtr=string.Empty;
         private int index_typu=-1;
         public Typ BiezacyTyp { get; set; }
+
+
+        static string edit = Lang.Typ_Edit;
+        static string add = Lang.Typ_Add;
+        static string del = Lang.Typ_Del;
+
+
         public int Index_typu
         {
             get { return Index_typu; }
@@ -56,6 +64,7 @@ namespace Projekt_Poig.ViewModel
                         arg =>
                         {
                             var osoba = new Typ(Nazwa_gracza, Opis,BiezacyTyp.ZwrocID_Int());
+                            edit = Lang.Typ_Edit;
 
 
                             if (model.EdytujTyp_GraczaZBazy(Opis,Nazwa_gracza,BiezacyTyp.ZwrocID()))
@@ -64,7 +73,7 @@ namespace Projekt_Poig.ViewModel
                                 index_typu = Typ.IndexOf(BiezacyTyp);
                                 Typ[index_typu] = osoba;
                                 index_typu = -1;
-                                System.Windows.MessageBox.Show("Pomyslnie edytowales typ gracza");
+                                System.Windows.MessageBox.Show(edit);
                             }
                         }
                         ,
@@ -86,11 +95,12 @@ namespace Projekt_Poig.ViewModel
                         arg =>
                         {
                             var osoba = new Typ(Nazwa_gracza, Opis);
+                            add = Lang.Typ_Add;
 
                             if (model.DodajTyp_GraczaDoBazy(osoba))
                             {
                                 CzyscFormularz();
-                                System.Windows.MessageBox.Show("Pomyslnie dodales typ gracza");
+                                System.Windows.MessageBox.Show(add);
                             }
                         }
                         ,
@@ -112,12 +122,13 @@ namespace Projekt_Poig.ViewModel
                         arg =>
                         {
                             var osoba = new Typ(Nazwa_gracza, Opis);
-                           
+                            del = Lang.Typ_Del;
+
 
                             if (model.UsunTyp_GraczaZBazy(BiezacyTyp))
                             {
                                 CzyscFormularz();
-                                System.Windows.MessageBox.Show("Pomyslnie Usunales typ gracza");
+                                System.Windows.MessageBox.Show(del);
                             }
                         }
                         ,

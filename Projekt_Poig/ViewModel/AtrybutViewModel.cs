@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Data;
+using Projekt_Poig.Properties.Lang;
 
 namespace Projekt_Poig.ViewModel
 {
@@ -23,7 +24,7 @@ namespace Projekt_Poig.ViewModel
         private ObservableCollection<string> niemaidnazwa = null;
         private string nazwa_gry = null;
         private int nazwaatrybutu = -1;
-        private List<string> nazwyatrybutow = new List<string> { "Single_Player", "Multiplayer", "FPS", "Open_World", "Fabularna", "Strategia", "RPG", "RogueLike", "Akcja", "Puzzle", "Symulacja", "Horror", "Przygodowa" };
+        private List<string> nazwyatrybutow = new List<string> { "Singleplayer", "Multiplayer", "FPS", "Open World", "Fabularna", "Strategia", "RPG", "RogueLike", "Akcja", "Puzzle", "Symulacja", "Horror", "Przygodowa" };
         private int id_gry = -1, idZaznaczenia = -1, index_atrybutu;
         private int singleplayer=0, multiplayer = 0, fps = 0, openworld = 0, fabularna = 0, strategia = 0, rpg = 0, roguelike = 0, akcja = 0, puzzle = 0, symulacja = 0, horror = 0, przygodowa = 0;
 
@@ -34,6 +35,11 @@ namespace Projekt_Poig.ViewModel
         private ICommand reset = null;
         public ICollectionView FiltrujTypyAtrybuty { get; }
         private int filtr = 0, filtr2 = 100;
+
+        static string edit = Lang.Atr_Edit;
+        static string add = Lang.Atr_Add;
+        static string del = Lang.Atr_Del;
+
 
         public ICommand Dodaj
         {
@@ -46,10 +52,12 @@ namespace Projekt_Poig.ViewModel
                         {
                             id_gry = model.ZnajdzGrepoNazwie(Nazwa_gry);
                             var atrybut = new Atrybut(id_gry,singleplayer,multiplayer,fps,openworld,fabularna,strategia,rpg,roguelike,akcja,puzzle,symulacja,horror,przygodowa);
+                            add = Lang.Atr_Add;
+
                             if (model.DodajAtrybutyDoBazy(atrybut))
                             {
                                 CzyscFormularz();
-                                System.Windows.MessageBox.Show("Pomyslnie dodales atrybut");
+                                System.Windows.MessageBox.Show(add);
                             }
                         }
                         ,
@@ -92,13 +100,14 @@ namespace Projekt_Poig.ViewModel
                         arg =>
                         {
                             var atrybuty = new Atrybut(id_gry);
+                            del = Lang.Atr_Del;
 
 
                             if (model.UsunAtrybutZBazy(BiezacyAtrybut))
                             {
                                 Nazwa_gry = model.ZnajdzGrepoId(id_gry);
                                 CzyscFormularzEdit();
-                                System.Windows.MessageBox.Show("Pomyslnie usunales gre");
+                                System.Windows.MessageBox.Show(del);
                             }
                         }
                         ,
@@ -120,6 +129,7 @@ namespace Projekt_Poig.ViewModel
                         arg =>
                         {
                             var atrybut = new Atrybut(int.Parse(BiezacyAtrybut.ZwrocID()), singleplayer, multiplayer, fps, openworld, fabularna, strategia, rpg, roguelike, akcja, puzzle, symulacja, horror, przygodowa);
+                            edit = Lang.Atr_Edit;
 
 
                             if (model.EdytujAtrybutyZBazy(singleplayer, multiplayer, fps, openworld, fabularna, strategia, rpg, roguelike, akcja, puzzle, symulacja, horror, przygodowa, BiezacyAtrybut.ZwrocID()))
@@ -128,7 +138,7 @@ namespace Projekt_Poig.ViewModel
                                 index_atrybutu = Atrybut.IndexOf(BiezacyAtrybut);
                                 Atrybut[index_atrybutu] = atrybut;
                                 index_atrybutu = -1;
-                                System.Windows.MessageBox.Show("Pomyslnie edytowales Atrybuty");
+                                System.Windows.MessageBox.Show(edit);
                             }
                         }
                         ,

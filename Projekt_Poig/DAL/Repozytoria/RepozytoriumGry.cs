@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Projekt_Poig.Properties.Lang;
 
 namespace Projekt_Poig.DAL.Repozytoria
 {
@@ -17,6 +18,8 @@ namespace Projekt_Poig.DAL.Repozytoria
         private const string EDIT_GRA_1 = "UPDATE `gry` SET `nazwa_gry`=";
         private const string EDIT_GRA_2 = ",`id_Typu`=";
         private const string EDIT_GRA_3 = " where `id_gry`=";
+
+        static string bug = Lang.BUG_1;
 
         public static List<Gra> PobierzWszystkieGry()
         {
@@ -52,6 +55,8 @@ namespace Projekt_Poig.DAL.Repozytoria
             {
                 MySqlCommand command = new MySqlCommand($"{DODAJ_GRE} {gry.ToInsert()}", connection);
                 connection.Open();
+                bug = Lang.BUG_1;
+
                 try
                 {
                     var id = command.ExecuteNonQuery();
@@ -60,7 +65,7 @@ namespace Projekt_Poig.DAL.Repozytoria
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Blad" + e);
+                    System.Windows.MessageBox.Show(bug);
                 }
                 connection.Close();
             }
@@ -74,6 +79,7 @@ namespace Projekt_Poig.DAL.Repozytoria
             {
                 MySqlCommand command = new MySqlCommand($"{USUN_GRE} {gry.ZwrocID()}", connection);
                 connection.Open();
+                bug = Lang.BUG_1;
 
                 try
                 {
@@ -82,7 +88,7 @@ namespace Projekt_Poig.DAL.Repozytoria
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Blad" + e);
+                    System.Windows.MessageBox.Show(bug);
                 }
 
                 connection.Close();
