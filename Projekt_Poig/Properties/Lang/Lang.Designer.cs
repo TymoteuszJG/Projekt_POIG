@@ -98,7 +98,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Singleplayer.
         /// </summary>
         public static string AT_Attribute_1 {
             get {
@@ -107,7 +107,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Puzzle.
         /// </summary>
         public static string AT_Attribute_10 {
             get {
@@ -116,7 +116,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Simulation.
         /// </summary>
         public static string AT_Attribute_11 {
             get {
@@ -125,7 +125,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Horror.
         /// </summary>
         public static string AT_Attribute_12 {
             get {
@@ -134,7 +134,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Adventure.
         /// </summary>
         public static string AT_Attribute_13 {
             get {
@@ -143,7 +143,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Multiplayer.
         /// </summary>
         public static string AT_Attribute_2 {
             get {
@@ -152,7 +152,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu FPS.
         /// </summary>
         public static string AT_Attribute_3 {
             get {
@@ -161,7 +161,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Open World.
         /// </summary>
         public static string AT_Attribute_4 {
             get {
@@ -170,7 +170,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Storyline.
         /// </summary>
         public static string AT_Attribute_5 {
             get {
@@ -179,7 +179,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Strategy.
         /// </summary>
         public static string AT_Attribute_6 {
             get {
@@ -188,7 +188,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu RPG.
         /// </summary>
         public static string AT_Attribute_7 {
             get {
@@ -197,7 +197,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Roguelike.
         /// </summary>
         public static string AT_Attribute_8 {
             get {
@@ -206,7 +206,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Action.
         /// </summary>
         public static string AT_Attribute_9 {
             get {
@@ -215,7 +215,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu From :.
         /// </summary>
         public static string AT_From {
             get {
@@ -224,7 +224,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID Game.
         /// </summary>
         public static string AT_idGame {
             get {
@@ -233,7 +233,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu To :.
         /// </summary>
         public static string AT_To {
             get {
@@ -242,7 +242,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY ADDED ATTRIBUTE!.
         /// </summary>
         public static string Atr_Add {
             get {
@@ -251,7 +251,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY DELETED ATTRIBUTE!.
         /// </summary>
         public static string Atr_Del {
             get {
@@ -260,7 +260,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY EDITED ATTRIBUTE!.
         /// </summary>
         public static string Atr_Edit {
             get {
@@ -269,7 +269,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu YOU CANNOT DELETE THIS GAME!.
         /// </summary>
         public static string BUG_1 {
             get {
@@ -278,7 +278,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu YOU CANNOT DELETE THIS PLAYER TYPE!.
         /// </summary>
         public static string BUG_2 {
             get {
@@ -296,7 +296,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Change language.
         /// </summary>
         public static string DP_Change {
             get {
@@ -305,7 +305,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu English.
         /// </summary>
         public static string DP_LangName {
             get {
@@ -323,7 +323,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu cos.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu flag_dif.
         /// </summary>
         public static string Flag {
             get {
@@ -332,7 +332,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY ADDED GAME!.
         /// </summary>
         public static string Gry_Add {
             get {
@@ -341,7 +341,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY DELETED GAME!.
         /// </summary>
         public static string Gry_Del {
             get {
@@ -350,7 +350,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY EDITED GAME!.
         /// </summary>
         public static string Gry_Edit {
             get {
@@ -359,7 +359,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Game&apos;s name:.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Game name:.
         /// </summary>
         public static string GT_Game_ {
             get {
@@ -368,7 +368,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID Game.
         /// </summary>
         public static string GT_idGame {
             get {
@@ -377,7 +377,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID Type.
         /// </summary>
         public static string GT_idType {
             get {
@@ -386,7 +386,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Game Name.
         /// </summary>
         public static string GT_Name {
             get {
@@ -395,7 +395,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Player .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Player name:.
         /// </summary>
         public static string GT_Player_ {
             get {
@@ -404,7 +404,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Game Database.
         /// </summary>
         public static string MW_Application {
             get {
@@ -413,7 +413,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Attributes.
         /// </summary>
         public static string MW_Attributes {
             get {
@@ -422,7 +422,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu gry.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Games.
         /// </summary>
         public static string MW_Game {
             get {
@@ -431,7 +431,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Types.
         /// </summary>
         public static string MW_Type {
             get {
@@ -440,7 +440,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Game&apos;s Types.
         /// </summary>
         public static string MW_TypeView {
             get {
@@ -449,7 +449,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Search:.
         /// </summary>
         public static string SEARCH {
             get {
@@ -458,7 +458,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Add.
         /// </summary>
         public static string TT_Button {
             get {
@@ -467,7 +467,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Description.
         /// </summary>
         public static string TT_Description {
             get {
@@ -476,7 +476,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ID Player.
         /// </summary>
         public static string TT_idGame {
             get {
@@ -485,7 +485,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Player Type.
         /// </summary>
         public static string TT_Player {
             get {
@@ -494,7 +494,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Player description:.
         /// </summary>
         public static string TT_PlayerDesc {
             get {
@@ -503,7 +503,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Player Name.
         /// </summary>
         public static string TT_PlayerName {
             get {
@@ -512,7 +512,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY ADDED PLAYER TYPE!.
         /// </summary>
         public static string Typ_Add {
             get {
@@ -521,7 +521,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY DELETED PLAYER TYPE!.
         /// </summary>
         public static string Typ_Del {
             get {
@@ -530,7 +530,7 @@ namespace Projekt_Poig.Properties.Lang {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu SUCCESSFULLY EDITED PLAYER TYPE!.
         /// </summary>
         public static string Typ_Edit {
             get {
